@@ -1,0 +1,82 @@
+body, html {
+	/* Move the Fotolia container outside the margins instead of doing this sitewide
+	margin:0;
+	*/
+	height: 95%;
+	color:#fff;
+	font-family: 'Lato', sans-serif;
+}
+div#bodycontainer {
+	/* dev
+	border: 1px #f00 solid;
+	*/
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+div#fotoliacontainer {
+	margin: -8px;
+}
+div#fotoliainnercontainer {
+	max-height:150px;
+	overflow:hidden;
+
+}
+img#fotolia {
+	width:100%;
+	min-height:150px;
+}
+h2, p {
+}
+a {
+	color:#fff;
+}
+a:hover {
+	color:#88cbfa;
+	text-decoration: none;
+}
+a:active {
+	color:#f00;
+	text-decoration: none;
+}
+/* For clearing floats */
+.clearfix {
+	overflow: auto;
+}
+div.divider {
+	background-color:#000;
+}
+/* Make Contact Form 7 fit on smartphones */
+input.wpcf7-form-control.wpcf7-text {
+	width:325px;
+}
+span.wpcf7-form-control-wrap.your-message textarea {
+	width:325px;
+	height:150px;
+}
+/* Move WordPress Toolbar to the bottom of the window (Instead of using the WordPress All In One Admin Bar plugin used on Greenwaters.info, which didn't work on this site, is 2 years old, not tested with WordPres 4, and the author's website is offline) */
+#wpadminbar {
+	top: auto !important;
+	bottom: 0;
+	position: fixed;
+	/* Doesn't seem to be needed:
+	background: none repeat scroll 0 0 #222222;
+	*/
+}
+
+/* These are not currently being used, but seem to be necessary for the TinyMCE WYSIWYG editor to left, center or right align images. Copied from: https://codex.wordpress.org/Wrapping_Text_Around_Images */
+img.alignright { float: right; margin: 0 0 1em 1em; }
+img.alignleft { float: left; margin: 0 1em 1em 0; }
+img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+/* Always vertically align content in table cells */
+td {
+    vertical-align: top;
+}
+/* Add padding to the right of the screenshots */
+td:nth-of-type(1) {
+    padding-right:5px;
+}
