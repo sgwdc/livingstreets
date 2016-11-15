@@ -4,7 +4,7 @@
 <!--
 <div style="display: inline-block; margin:0 auto; border:1px #f00 solid;">
 -->
-<h2><img src="http://livingstreets.com/wp-content/uploads/2016/09/livingstreets_logo_30px.png" align="absmiddle"> Living Streets Consulting</h2>
+<h2><img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_30px.png" align="absmiddle"> Living Streets Consulting</h2>
 
 <?php /* Start the Loop */ ?>
 <?php while ( have_posts() ) : the_post(); ?>
