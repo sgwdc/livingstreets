@@ -62,15 +62,6 @@ span.wpcf7-form-control-wrap.your-message textarea {
 	width:325px;
 	height:150px;
 }
-/* Move WordPress Toolbar to the bottom of the window (Instead of using the WordPress All In One Admin Bar plugin used on Greenwaters.info, which didn't work on this site, is 2 years old, not tested with WordPres 4, and the author's website is offline) */
-#wpadminbar {
-	top: auto !important;
-	bottom: 0;
-	position: fixed;
-	/* Doesn't seem to be needed:
-	background: none repeat scroll 0 0 #222222;
-	*/
-}
 
 /* These are not currently being used, but seem to be necessary for the TinyMCE WYSIWYG editor to left, center or right align images. Copied from: https://codex.wordpress.org/Wrapping_Text_Around_Images */
 img.alignright { float: right; margin: 0 0 1em 1em; }
