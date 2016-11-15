@@ -10,21 +10,29 @@ div#bodycontainer {
 	/* dev
 	border: 1px #f00 solid;
 	*/
+	/* Vertical centering causes problems on mobile devices
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
+	*/
 }
 div#fotoliacontainer {
 	margin: -8px;
 }
 div#fotoliainnercontainer {
+	/* If vertical centering div#bodycontainer above
 	max-height:150px;
+	*/
+	max-height:250px;
 	overflow:hidden;
 
 }
 img#fotolia {
 	width:100%;
+	/* If vertical centering div#bodycontainer above
 	min-height:150px;
+	*/
+	min-height:250px;
 }
 h2, p {
 }
