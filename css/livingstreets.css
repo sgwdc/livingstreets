@@ -88,3 +88,23 @@ td {
 td:nth-of-type(1) {
     padding-right:5px;
 }
+/* Make screenshot images responsive (Make this more specific and less global later) -10/26/2016 */
+img {
+	/* Doesn't seem to be necessary
+    vertical-align: middle;
+    */
+    height: auto;
+    max-width: 100%;
+}
+td {
+	width: 50%;
+}
+tr {
+	display:table-row;
+}
+/* End making screenshot images responsive */
+/* dev
+table, tr, td {
+	border: 1px #f00 solid;
+}
+*/
