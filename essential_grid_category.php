@@ -57,7 +57,9 @@ get_header();
 		*/
 		// Get the name of the category
 		$category_name = get_term_by($field, $category_slug, $taxonomy) -> name;
-		echo '<h3><a href="/portfolio/">Portfolio of Steven Greenwaters</a> &nbsp;&raquo;&nbsp; ' . $category_name . '</h3>';
+		echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>';
+
+		echo '<h2>Project category: ' . $category_name . '</h2>';
 
 		// Convert the list of custom posts to a comma separated string
 		$essential_grid_posts_csv = implode(',', $post_ids);
