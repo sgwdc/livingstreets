@@ -29,7 +29,7 @@
 				$selected_category_slug = $match[1];
 			}
 
-			echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a> &nbsp; <span style="font-size:20px;">&raquo;</span> &nbsp; ';
+			echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a> &nbsp; &gt; &nbsp; ';
 
 			// Iterate through each category that contains this project post
 			$i = 0;
