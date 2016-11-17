@@ -61,6 +61,8 @@ get_header();
 
 		echo '<h2>Project category: ' . $category_name . '</h2>';
 
+		echo '<h4>Please select a project:</h4>';
+
 		// Convert the list of custom posts to a comma separated string
 		$essential_grid_posts_csv = implode(',', $post_ids);
 		// Insert the "Essential Grid" plugin, and pass in the list of posts to display
