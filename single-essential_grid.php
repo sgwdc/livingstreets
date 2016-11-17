@@ -29,18 +29,33 @@
 				$selected_category_slug = $match[1];
 			}
 
-			echo '<h3><a href="/portfolio/">Portfolio of Steven Greenwaters</a> &nbsp;&raquo;&nbsp; ';
-			// If we know the name of the referring category page, display and link to it
-			if (isset($selected_category_slug)) {
-				// Link to this category
-				$category_url = '/portfolio/category/?id=' . $selected_category_slug;
-				echo '<a href="' . $category_url . '">' . $custom_categories_ass[$selected_category_slug] . '</a>';
-			// Otherwise display the word "Project"
-			} else {
-				echo 'Project';
+			echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a> &nbsp; <span style="font-size:20px;">&raquo;</span> &nbsp; ';
+
+			// Iterate through each category that contains this project post
+			$i = 0;
+			foreach ($custom_categories_ass as $category_slug => $category_name) {
+				// If we don't know which category was selected, or if this is a category other than the one selected
+				//if (!isset($selected_category_slug) || $selected_category_slug != $category_slug) {
+					// If this is not the first category displayed, add a divider
+					if ($i != 0) {
+						echo ' &nbsp;|&nbsp; ';
+					}
+					$category_url = '/portfolio/category/?id=' . $category_slug;
+					$category_name = $custom_categories_ass[$category_slug];
+					echo '<a href="' . $category_url . '"';
+					// If we don't know which category was selected, or if this is a category other than the one selected
+					if (!isset($selected_category_slug) || $selected_category_slug != $category_slug) {
+						// Disable bold
+						echo ' style="font-weight:normal;"';
+					}
+					echo '>' . $category_name . '</a>';
+				//}
+				// Increment the index
+				$i++;
 			}
-			// Separator
-			echo ' &nbsp;&raquo;&nbsp; ';
+			echo '</h4>';
+
+			echo '<h2>';
 			// Display the project title
 			echo get_the_title();
 			// Link to the "Edit" page if the user has access
@@ -52,39 +67,10 @@
 				'<span class="edit-link"> &nbsp;&nbsp; [ ',
 				' ]</span>'
 			);
-			echo '</h3>';
+			echo '</h2>';
 			?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<?php
-				if (count($custom_categories_ass) > 1) {
-					// If we know which category the user selected
-					if (isset($selected_category_slug)) {
-						echo '<h5>Also in categories: ';
-					} else {
-						echo '<h5>In categories: ';
-					}
-				}
-
-				// Iterate through each category that contains this project post
-				$i = 0;
-				foreach ($custom_categories_ass as $category_slug => $category_name) {
-					// If we don't know which category was selected, or if this is a category other than the one selected
-					if (!isset($selected_category_slug) || $selected_category_slug != $category_slug) {
-						// If this is not the first category displayed, add a divider
-						if ($i != 0) {
-							echo ' &nbsp;|&nbsp; ';
-						}
-						$category_url = '/portfolio/category/?id=' . $category_slug;
-						$category_name = $custom_categories_ass[$category_slug];
-						echo '<a href="' . $category_url . '">' . $category_name . '</a>';
-					}
-					// Increment the index
-					$i++;
-				}
-				echo '</h5>';
-				?>
-
 				<?php
 				/* Not sure whether we'll use this or not
 					the_excerpt();
