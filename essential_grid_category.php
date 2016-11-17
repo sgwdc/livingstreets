@@ -68,7 +68,8 @@ get_header();
 	<h3>Other project categories:</h3>
 	<p>Insert here</p>
 
-	<p><a href="/portfolio/">Portfolio Homepage</a></p>
+	<p>&nbsp;</p>
+	<p><a href="/portfolio/">Return to all projects</a></p>
 	<p><a href="/">Home</a></p>
 	<p>&nbsp;</p>
 

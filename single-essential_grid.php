@@ -105,10 +105,17 @@
 		<?php
 		// End of the loop
 		endwhile;
+
+		// If we know the name of the referring category page, display and link to it
+		if (isset($selected_category_slug)) {
+			// Link to this category
+			$category_url = '/portfolio/category/?id=' . $selected_category_slug;
+			echo '<p><a href="' . $category_url . '">Return to all ' . $custom_categories_ass[$selected_category_slug] . ' projects</a></p>';
+		}
 	?>
 
-	<p><a href="/portfolio/">Portfolio Homepage</a></p>
-	<p><a href="/portfolio/">Home</a></p>
+	<p><a href="/portfolio/">Return to all projects</a></p>
+	<p><a href="/">Home</a></p>
 
 	<p>&nbsp;</p>
 
