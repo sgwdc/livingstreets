@@ -48,6 +48,11 @@ get_header();
 	<h2><img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_30px.png" align="absmiddle"> Living Streets Consulting</h2>
 
 	<?php
+		// Display page content
+		while ( have_posts() ) : the_post();
+		the_content();
+		endwhile;
+
 		echo '<h1>' . $requested_category . ' Projects</h1>';
 		$essential_grid_posts_csv = implode(',', $post_ids);
 		echo do_shortcode('[ess_grid alias="portfolio" posts="' . $essential_grid_posts_csv . '"]');
