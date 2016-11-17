@@ -57,15 +57,17 @@
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php
-				// If we know which category the user selected
-				if (isset($selected_category_slug)) {
-					echo '<h5>Also in categories: ';
-				} else {
-					echo '<h5>In categories: ';
+				if (count($custom_categories_ass) > 1) {
+					// If we know which category the user selected
+					if (isset($selected_category_slug)) {
+						echo '<h5>Also in categories: ';
+					} else {
+						echo '<h5>In categories: ';
+					}
 				}
 
-				$i = 0;
 				// Iterate through each category that contains this project post
+				$i = 0;
 				foreach ($custom_categories_ass as $category_slug => $category_name) {
 					// If we don't know which category was selected, or if this is a category other than the one selected
 					if (!isset($selected_category_slug) || $selected_category_slug != $category_slug) {
