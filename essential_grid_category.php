@@ -52,14 +52,16 @@ get_header();
 	<h2><img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_30px.png" align="absmiddle"> Living Streets Consulting</h2>
 
 	<?php
+		/* Not sure whether we'll use this or not
 		// Display page content
 		while ( have_posts() ) : the_post();
 		the_content();
 		endwhile;
-
+		*/
 		// Get the name of the category
 		$category_name = get_term_by($field, $category_slug, $taxonomy) -> name;
-		echo '<h1>Projects: ' . $category_name . '</h1>';
+		echo '<h3><a href="/portfolio/">Portfolio of Steven Greenwaters</a> &raquo; ' . $category_name . '</h3>';
+
 		// Convert the list of custom posts to a comma separated string
 		$essential_grid_posts_csv = implode(',', $post_ids);
 		// Insert the "Essential Grid" plugin, and pass in the list of posts to display
@@ -69,6 +71,7 @@ get_header();
 	<h3>Other project categories:</h3>
 	<p>Insert here</p>
 
+	<p><a href="/portfolio/">Portfolio Homepage</a></p>
 	<p><a href="/">Home</a></p>
 	<p>&nbsp;</p>
 
