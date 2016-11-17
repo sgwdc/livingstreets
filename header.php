@@ -23,4 +23,4 @@ include $RelativeToRoot . 'visitor_tracker.php';
 </head>
 <body bgcolor="#0067b5" <?php body_class(); ?>>
 
-	<h2><a href="/"><img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_30px.png" align="absmiddle"></a> Living Streets Consulting</h2>
+	<h2><a href="/" class="headerhomelink"><img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_30px.png" align="absmiddle"> Living Streets Consulting</a></h2>

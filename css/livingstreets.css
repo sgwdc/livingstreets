@@ -87,3 +87,7 @@ table, tr, td {
 .edit-link {
 	font-weight:normal;
 }
+
+a.headerhomelink {
+	text-decoration: none;
+}
