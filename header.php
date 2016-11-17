@@ -22,3 +22,5 @@ include $RelativeToRoot . 'visitor_tracker.php';
 	<?php wp_head(); ?>
 </head>
 <body bgcolor="#0067b5" <?php body_class(); ?>>
+
+	<h2><a href="/"><img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_30px.png" align="absmiddle"></a> Living Streets Consulting</h2>

@@ -5,8 +5,6 @@
 	-->
 	<?php get_header(); ?>
 
-		<h2><img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_30px.png" align="absmiddle"> Living Streets Consulting</h2>
-
 		<!-- This entire block will be expanded into the margin so it runs across the entire screen -->
 		<div id="fotoliacontainer">
 			<div class="divider">&nbsp;</div>
