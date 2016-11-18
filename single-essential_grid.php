@@ -83,6 +83,8 @@
 
 				<!-- Display the post content -->
 				<div class="entry-content">
+					<br>
+					<p><strong>Description:</strong></p>
 					<?php
 						the_content();
 					?>
