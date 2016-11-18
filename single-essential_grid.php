@@ -3,11 +3,15 @@
 
 // Get all the categories this project post is in
 $taxonomy = 'essential_grid_category';
+
+
+/********************************************************************************/
+/* GET ALL THE CUSTOM CATEGORIES THAT THIS CUSTOM POST IS IN					*/
+/********************************************************************************/
 global $post;
 // Get the list of custom categories that this project post is in
 $custom_categories_array = wp_get_object_terms( $post->ID, $taxonomy);
-
-// Create an associative array of the categories for easy access
+// Create an associative array of the categories for easy access later
 $custom_categories_ass = array();
 for ($i = 0; $i < count($custom_categories_array); $i++) {
 	$category_slug = $custom_categories_array[$i] -> slug;
@@ -15,15 +19,15 @@ for ($i = 0; $i < count($custom_categories_array); $i++) {
 	$custom_categories_ass[$category_slug] = $category_name;
 }
 
-
+/********************************************************************************/
+/* GET ALL THE PROJECTS IN THE SAME CATEGORIES AS THIS CUSTOM POST				*/
+/********************************************************************************/
 // Create an array of slugs for all the categories this post is in
 $category_slugs = array();
 foreach ($custom_categories_ass as $category_slug => $category_name) {
 	array_push($category_slugs, $category_slug);
 }
-
 $field = 'slug';
-// Get all the projects in the same categories as this project
 // Define arguments for WP_Query() 
 $args = array(
 	// Custom post type for the Essential Grid plugin
@@ -45,8 +49,6 @@ $args = array(
 );
 // Get custom post ID's for the current custom category
 $query_result = new WP_Query( $args );
-
-// Pull out just the custom post ID's
 $post_ids = $query_result -> posts;
 
 /* REMOVE THE CURRENT PROJECT POST FROM THE LIST OF PROJECTS IN THE SAME CATEGORIES */
@@ -111,7 +113,7 @@ while ( have_posts() ) : the_post();
 endwhile;
 
 /********************************************************************************/
-/* DISPLAY OTHER PROJECTS IN THE SAME CATEGORY										*/
+/* DISPLAY OTHER CUSTOM POSTS IN THE SAME CUSTOM CATEGORY						*/
 /********************************************************************************/
 ?>
 <br>
@@ -132,7 +134,6 @@ $essential_grid_posts_csv = implode(',', $project_post_ids);
 // Insert the "Essential Grid" plugin, and pass in the list of posts to display
 echo do_shortcode('[ess_grid alias="portfolio2" posts="' . $essential_grid_posts_csv . '"]');
 ?>
-
 <br>
 <p><a href="/portfolio/">Return to all projects</a></p>
 <p><a href="/">Home</a></p>
