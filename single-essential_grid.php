@@ -1,8 +1,11 @@
 <?php
 // This file is automatically loaded when an individual project is displayed
+// e.g. http://livingstreets.com/essential_grid/modeling-pedestrian-behavior-space-syntax/
 
+// Essential Grid custom category taxonomy
+$post_type = 'essential_grid';
 $taxonomy = 'essential_grid_category';
-
+$field = 'slug';
 
 /********************************************************************************/
 /* GET ALL THE CUSTOM CATEGORIES THAT THIS CUSTOM POST IS IN					*/
@@ -26,7 +29,6 @@ $category_slugs = array();
 foreach ($custom_categories_ass as $category_slug => $category_name) {
 	array_push($category_slugs, $category_slug);
 }
-$field = 'slug';
 // Define arguments for WP_Query() 
 $args = array(
 	// Custom post type for the Essential Grid plugin

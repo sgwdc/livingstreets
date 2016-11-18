@@ -2,12 +2,13 @@
 /*
 Template Name: Essential Grid Category
 
-This is the template used to display portfolio project categories.
+This the template is used for the page that displays portfolio categories
 */
 
 // Get the category "id" from the query string
 $category_slug = $_GET['id'];
 
+// Essential Grid custom category taxonomy
 $post_type = 'essential_grid';
 $taxonomy = 'essential_grid_category';
 $field = 'slug';
