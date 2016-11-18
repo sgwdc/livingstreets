@@ -78,6 +78,9 @@ for ($i=0; $i < count($category_posts); $i++) {
 	if ($category_posts[$i] -> post_name != $category_slug) {
 		// Save the post ID for the OTHER category for later
 		array_push($category_post_ids, $category_posts[$i] -> ID);
+	} else {
+		// Save the post ID for the CURRENT category for later
+		$current_category_post_id = $category_posts[$i] -> ID;
 	}
 }
 
@@ -95,6 +98,8 @@ $category_name = get_term_by($field, $category_slug, $taxonomy) -> name;
 echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>';
 
 echo '<h2>Project category: ' . $category_name . '</h2>';
+// Display thumbnail for the current project category
+echo '<div>' . get_the_post_thumbnail($current_category_post_id, 'thumbnail') . '</div>';
 
 /********************************************************************************/
 /* DISPLAY PROJECTS IN THE CURRENT CATEGORY										*/
