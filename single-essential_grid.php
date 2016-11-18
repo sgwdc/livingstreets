@@ -14,9 +14,51 @@ for ($i = 0; $i < count($custom_categories_array); $i++) {
 	$category_name = $custom_categories_array[$i] -> name;
 	$custom_categories_ass[$category_slug] = $category_name;
 }
-?>
 
-<?php
+
+// Create an array of slugs for all the categories this post is in
+$category_slugs = array();
+foreach ($custom_categories_ass as $category_slug => $category_name) {
+	array_push($category_slugs, $category_slug);
+}
+
+$field = 'slug';
+// Get all the projects in the same categories as this project
+// Define arguments for WP_Query() 
+$args = array(
+	// Custom post type for the Essential Grid plugin
+	'post_type' => $post_type,
+	// Custom taxonomy
+	'tax_query' => array(
+		array(
+			// Custom category for custom post type
+			'taxonomy' => $taxonomy,
+			// Specify that the "terms" below is the slug for the requested category - NOTE: "field" can also be: term_id, name, or term_taxonomy_id (default is term_id)
+			'field' => $field,
+			// Specify the slug for the category - NOTE: "terms" can also be an array
+			'terms' => $category_slugs
+			//'terms' => 'gis'
+		)
+	),
+	// Only return the post ID's
+	'fields' => 'ids'
+);
+// Get custom post ID's for the current custom category
+$query_result = new WP_Query( $args );
+
+// Pull out just the custom post ID's
+$post_ids = $query_result -> posts;
+
+/* REMOVE THE CURRENT PROJECT POST FROM THE LIST OF PROJECTS IN THE SAME CATEGORIES */
+$project_post_ids = array();
+// Iterate through the posts for Essential Grid categories
+for ($i=0; $i < count($post_ids); $i++) {
+	// If this is a category other than the one currently being displayed
+	if ($post_ids[$i] != $post -> ID) {
+		array_push($project_post_ids, $post_ids[$i]);
+	}
+}
+
 get_header();
 
 // Start the loop
@@ -84,50 +126,6 @@ endwhile;
 <?php
 showCategories();
 echo '</h4>';
-
-// Create an array of slugs for all the categories this post is in
-$category_slugs = array();
-foreach ($custom_categories_ass as $category_slug => $category_name) {
-	array_push($category_slugs, $category_slug);
-}
-
-$field = 'slug';
-
-// Get all the projects in the same categories as this project
-// Define arguments for WP_Query() 
-$args = array(
-	// Custom post type for the Essential Grid plugin
-	'post_type' => $post_type,
-	// Custom taxonomy
-	'tax_query' => array(
-		array(
-			// Custom category for custom post type
-			'taxonomy' => $taxonomy,
-			// Specify that the "terms" below is the slug for the requested category - NOTE: "field" can also be: term_id, name, or term_taxonomy_id (default is term_id)
-			'field' => $field,
-			// Specify the slug for the category - NOTE: "terms" can also be an array
-			'terms' => $category_slugs
-			//'terms' => 'gis'
-		)
-	),
-	// Only return the post ID's
-	'fields' => 'ids'
-);
-// Get custom post ID's for the current custom category
-$query_result = new WP_Query( $args );
-
-// Pull out just the custom post ID's
-$post_ids = $query_result -> posts;
-
-/* REMOVE THE CURRENT PROJECT POST FROM THE LIST OF PROJECTS IN THE SAME CATEGORIES */
-$project_post_ids = array();
-// Iterate through the posts for Essential Grid categories
-for ($i=0; $i < count($post_ids); $i++) {
-	// If this is a category other than the one currently being displayed
-	if ($post_ids[$i] != $post -> ID) {
-		array_push($project_post_ids, $post_ids[$i]);
-	}
-}
 
 // Convert the list of custom posts to a comma separated string
 $essential_grid_posts_csv = implode(',', $project_post_ids);
