@@ -13,17 +13,10 @@ $field = 'slug';
 global $post;
 // Get the list of custom categories that this project post is in
 $custom_categories_array = wp_get_object_terms( $post->ID, $taxonomy);
-// Create an associative array of the categories for easy access later
-$custom_categories_ass = array();
-for ($i = 0; $i < count($custom_categories_array); $i++) {
-	$category_slug = $custom_categories_array[$i] -> slug;
-	$category_name = $custom_categories_array[$i] -> name;
-	$custom_categories_ass[$category_slug] = $category_name;
-}
 // Create an array of slugs for all the custom categories this custom post is in
 $category_slugs = array();
-foreach ($custom_categories_ass as $category_slug => $category_name) {
-	array_push($category_slugs, $category_slug);
+for ($i=0; $i < count($custom_categories_array); $i++) {
+	array_push($category_slugs, $custom_categories_array[$i] -> slug);
 }
 
 /********************************************************************************/
@@ -116,7 +109,7 @@ endwhile;
 <br>
 
 <h4>Other projects in the same categor<?php
-	if (count($custom_categories_ass) > 1) {
+	if (count($custom_categories_array) > 1) {
 		echo 'ies';
 	} else {
 		echo 'y';
@@ -141,21 +134,18 @@ echo do_shortcode('[ess_grid alias="portfolio2" posts="' . $essential_grid_posts
 
 <?php
 function showCategories() {
-	global $custom_categories_ass;
+	global $custom_categories_array;
 	// Iterate through each custom category that contains this custom post
-	$i = 0;
-	foreach ($custom_categories_ass as $category_slug => $category_name) {
+	for ($i=0; $i < count($custom_categories_array); $i++) {
 		// If this is not the first category displayed, add a divider
 		if ($i != 0) {
 			echo ' &nbsp;|&nbsp; ';
 		}
-		$category_url = '/portfolio/category/?id=' . $category_slug;
-		$category_name = $custom_categories_ass[$category_slug];
+		$category_url = '/portfolio/category/?id=' . $custom_categories_array[$i] -> slug;
+		$category_name = $custom_categories_array[$i] -> name;
 		echo '<a href="' . $category_url . '"';
 		echo ' style="font-weight:normal;"';
 		echo '>' . $category_name . '</a>';
-		// Increment the index
-		$i++;
 	}
 }
 ?>
