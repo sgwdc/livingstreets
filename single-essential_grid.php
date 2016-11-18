@@ -20,15 +20,15 @@ for ($i = 0; $i < count($custom_categories_array); $i++) {
 	$category_name = $custom_categories_array[$i] -> name;
 	$custom_categories_ass[$category_slug] = $category_name;
 }
-
-/********************************************************************************/
-/* GET ALL THE CUSTOM POSTS IN THE SAME CUSTOM CATEGORIES AS THIS CUSTOM POST	*/
-/********************************************************************************/
 // Create an array of slugs for all the custom categories this custom post is in
 $category_slugs = array();
 foreach ($custom_categories_ass as $category_slug => $category_name) {
 	array_push($category_slugs, $category_slug);
 }
+
+/********************************************************************************/
+/* GET ALL THE CUSTOM POSTS IN THE SAME CUSTOM CATEGORIES AS THIS CUSTOM POST	*/
+/********************************************************************************/
 // Define arguments for WP_Query() 
 $args = array(
 	// Custom post type for the Essential Grid plugin
@@ -42,7 +42,6 @@ $args = array(
 			'field' => $field,
 			// Specify the slug for the category - NOTE: "terms" can also be an array
 			'terms' => $category_slugs
-			//'terms' => 'gis'
 		)
 	),
 	// Only return the post ID's
@@ -51,14 +50,11 @@ $args = array(
 // Get custom post ID's for the current custom category
 $query_result = new WP_Query( $args );
 $post_ids = $query_result -> posts;
-
-/* REMOVE THE CURRENT PROJECT POST FROM THE LIST OF PROJECTS IN THE SAME CATEGORIES */
-$project_post_ids = array();
-// Iterate through the posts for Essential Grid categories
+// Remove the current custom post from the array of all custom posts in the same custom categories as the current post
 for ($i=0; $i < count($post_ids); $i++) {
-	// If this is a category other than the one currently being displayed
-	if ($post_ids[$i] != $post -> ID) {
-		array_push($project_post_ids, $post_ids[$i]);
+	// If this is a custom post other than the one currently being displayed
+	if ($post_ids[$i] == $post -> ID) {
+		unset($post_ids[$i]);
 	}
 }
 
@@ -131,7 +127,7 @@ showCategories();
 echo '</h4>';
 
 // Convert the list of custom posts to a comma separated string
-$essential_grid_posts_csv = implode(',', $project_post_ids);
+$essential_grid_posts_csv = implode(',', $post_ids);
 // Insert the "Essential Grid" plugin, and pass in the list of posts to display
 echo do_shortcode('[ess_grid alias="portfolio2" posts="' . $essential_grid_posts_csv . '"]');
 ?>
