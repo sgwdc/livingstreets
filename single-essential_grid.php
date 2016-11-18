@@ -58,11 +58,14 @@
 					$category_url = '/portfolio/category/?id=' . $category_slug;
 					$category_name = $custom_categories_ass[$category_slug];
 					echo '<a href="' . $category_url . '"';
+					/* Unfortunately this is probably confusing to users
 					// If we don't know which category was selected, or if this is a category other than the one selected
 					if (!isset($selected_category_slug) || $selected_category_slug != $category_slug) {
 						// Disable bold
 						echo ' style="font-weight:normal;"';
 					}
+					*/
+					echo ' style="font-weight:normal;"';
 					echo '>' . $category_name . '</a>';
 				//}
 				// Increment the index
