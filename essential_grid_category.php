@@ -7,14 +7,15 @@ This is the template used to display portfolio project categories.
 
 // Get the category "id" from the query string
 $category_slug = $_GET['id'];
-$field = 'slug';
-$taxonomy = 'essential_grid_category';
 
-/* GET POST IDs FOR THE CURRENT CATEGORY */
+/* GET CUSTOM POST IDs FOR THE CURRENT CUSTOM CATEGORY */
+$post_type = 'essential_grid';
+$taxonomy = 'essential_grid_category';
+$field = 'slug';
 // Define arguments for WP_Query() 
 $args = array(
 	// Custom post type for the Essential Grid plugin
-	'post_type' => 'essential_grid',
+	'post_type' => $post_type,
 	// Custom taxonomy
 	'tax_query' => array(
 		array(
