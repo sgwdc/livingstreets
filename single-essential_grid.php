@@ -1,7 +1,6 @@
 <?php
-// This file is automatically loaded when an individual project post is displayed
+// This file is automatically loaded when an individual project is displayed
 
-// Get all the categories this project post is in
 $taxonomy = 'essential_grid_category';
 
 
@@ -20,9 +19,9 @@ for ($i = 0; $i < count($custom_categories_array); $i++) {
 }
 
 /********************************************************************************/
-/* GET ALL THE PROJECTS IN THE SAME CATEGORIES AS THIS CUSTOM POST				*/
+/* GET ALL THE CUSTOM POSTS IN THE SAME CUSTOM CATEGORIES AS THIS CUSTOM POST	*/
 /********************************************************************************/
-// Create an array of slugs for all the categories this post is in
+// Create an array of slugs for all the custom categories this custom post is in
 $category_slugs = array();
 foreach ($custom_categories_ass as $category_slug => $category_name) {
 	array_push($category_slugs, $category_slug);
@@ -145,7 +144,7 @@ echo do_shortcode('[ess_grid alias="portfolio2" posts="' . $essential_grid_posts
 <?php
 function showCategories() {
 	global $custom_categories_ass;
-	// Iterate through each category that contains this project post
+	// Iterate through each custom category that contains this custom post
 	$i = 0;
 	foreach ($custom_categories_ass as $category_slug => $category_name) {
 		// If this is not the first category displayed, add a divider

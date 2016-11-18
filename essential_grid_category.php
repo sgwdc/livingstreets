@@ -35,7 +35,6 @@ $args = array(
 );
 // Get custom post ID's for the current custom category
 $query_result = new WP_Query( $args );
-// Pull out just the custom post ID's
 $post_ids = $query_result -> posts;
 // If no posts are found for this category (which should never happen)
 if (!count($post_ids)) {
