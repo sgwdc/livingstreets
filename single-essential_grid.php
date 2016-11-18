@@ -72,7 +72,7 @@ while ( have_posts() ) : the_post();
 	echo '</h2>';
 
 	echo '<h5 class="categories">Categories: &nbsp;';
-	showCategories();
+	showCategories($custom_categories_array);
 	echo '</h5>';
 	?>
 
@@ -116,7 +116,7 @@ endwhile;
 	}
 ?>: &nbsp;
 <?php
-showCategories();
+showCategories($custom_categories_array);
 echo '</h4>';
 
 // Convert the list of custom posts to a comma separated string
@@ -133,8 +133,7 @@ echo do_shortcode('[ess_grid alias="portfolio2" posts="' . $essential_grid_posts
 <?php get_footer(); ?>
 
 <?php
-function showCategories() {
-	global $custom_categories_array;
+function showCategories($custom_categories_array) {
 	// Iterate through each custom category that contains this custom post
 	for ($i=0; $i < count($custom_categories_array); $i++) {
 		// If this is not the first category displayed, add a divider
