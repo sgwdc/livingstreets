@@ -46,31 +46,7 @@ while ( have_posts() ) : the_post();
 	echo '</h2>';
 
 	echo '<h5 class="categories">Categories: &nbsp;';
-	// Iterate through each category that contains this project post
-	$i = 0;
-	foreach ($custom_categories_ass as $category_slug => $category_name) {
-		// If we don't know which category was selected, or if this is a category other than the one selected
-		//if (!isset($selected_category_slug) || $selected_category_slug != $category_slug) {
-			// If this is not the first category displayed, add a divider
-			if ($i != 0) {
-				echo ' &nbsp;|&nbsp; ';
-			}
-			$category_url = '/portfolio/category/?id=' . $category_slug;
-			$category_name = $custom_categories_ass[$category_slug];
-			echo '<a href="' . $category_url . '"';
-			/* Unfortunately this is probably confusing to users
-			// If we don't know which category was selected, or if this is a category other than the one selected
-			if (!isset($selected_category_slug) || $selected_category_slug != $category_slug) {
-				// Disable bold
-				echo ' style="font-weight:normal;"';
-			}
-			*/
-			echo ' style="font-weight:normal;"';
-			echo '>' . $category_name . '</a>';
-		//}
-		// Increment the index
-		$i++;
-	}
+	showCategories();
 	echo '</h5>';
 	?>
 
@@ -114,3 +90,31 @@ if (isset($selected_category_slug)) {
 <p>&nbsp;</p>
 
 <?php get_footer(); ?>
+
+<?php
+function showCategories() {
+	global $custom_categories_ass;
+	// Iterate through each category that contains this project post
+	$i = 0;
+	foreach ($custom_categories_ass as $category_slug => $category_name) {
+		// If this is not the first category displayed, add a divider
+		if ($i != 0) {
+			echo ' &nbsp;|&nbsp; ';
+		}
+		$category_url = '/portfolio/category/?id=' . $category_slug;
+		$category_name = $custom_categories_ass[$category_slug];
+		echo '<a href="' . $category_url . '"';
+		/* Unfortunately this is probably confusing to users
+		// If we don't know which category was selected, or if this is a category other than the one selected
+		if (!isset($selected_category_slug) || $selected_category_slug != $category_slug) {
+			// Disable bold
+			echo ' style="font-weight:normal;"';
+		}
+		*/
+		echo ' style="font-weight:normal;"';
+		echo '>' . $category_name . '</a>';
+		// Increment the index
+		$i++;
+	}
+}
+?>
