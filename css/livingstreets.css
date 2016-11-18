@@ -92,3 +92,10 @@ table, tr, td {
 a.headerhomelink {
 	text-decoration: none;
 }
+/* Remove space between project titles and categories */
+h2.project-title {
+	margin:0;
+}
+h5.categories {
+	margin:5px 0 0 0;
+}

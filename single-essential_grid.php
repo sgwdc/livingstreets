@@ -29,8 +29,23 @@
 				$selected_category_slug = $match[1];
 			}
 
-			echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a> &nbsp; &gt; &nbsp; ';
+			echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>';
 
+			echo '<h2 class="project-title">';
+			// Display the project title
+			echo get_the_title();
+			// Link to the "Edit" page if the user has access
+			edit_post_link(
+				sprintf(
+					__( 'Edit project' ),
+					get_the_title()
+				),
+				'<span class="edit-link"> &nbsp;&nbsp; [ ',
+				' ]</span>'
+			);
+			echo '</h2>';
+
+			echo '<h5 class="categories">Categories: &nbsp;';
 			// Iterate through each category that contains this project post
 			$i = 0;
 			foreach ($custom_categories_ass as $category_slug => $category_name) {
@@ -53,21 +68,7 @@
 				// Increment the index
 				$i++;
 			}
-			echo '</h4>';
-
-			echo '<h2>';
-			// Display the project title
-			echo get_the_title();
-			// Link to the "Edit" page if the user has access
-			edit_post_link(
-				sprintf(
-					__( 'Edit project' ),
-					get_the_title()
-				),
-				'<span class="edit-link"> &nbsp;&nbsp; [ ',
-				' ]</span>'
-			);
-			echo '</h2>';
+			echo '</h5>';
 			?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
