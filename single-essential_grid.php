@@ -21,15 +21,6 @@ get_header();
 
 // Start the loop
 while ( have_posts() ) : the_post();
-	// Get the referring URL, if it exists
-	$referring_url = $_SERVER['HTTP_REFERER'];
-	// If the referring URL is a strong (instead of NULL)
-	if (gettype($referring_url) == "string") {
-		// Get only the part after "?id="
-		preg_match("/^.+?\\?id=(.+)$/is" , $referring_url, $match);
-		$selected_category_slug = $match[1];
-	}
-
 	echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>';
 
 	echo '<h2 class="project-title">';
@@ -155,13 +146,6 @@ function showCategories() {
 		$category_url = '/portfolio/category/?id=' . $category_slug;
 		$category_name = $custom_categories_ass[$category_slug];
 		echo '<a href="' . $category_url . '"';
-		/* Unfortunately this is probably confusing to users
-		// If we don't know which category was selected, or if this is a category other than the one selected
-		if (!isset($selected_category_slug) || $selected_category_slug != $category_slug) {
-			// Disable bold
-			echo ' style="font-weight:normal;"';
-		}
-		*/
 		echo ' style="font-weight:normal;"';
 		echo '>' . $category_name . '</a>';
 		// Increment the index
