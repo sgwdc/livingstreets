@@ -12,6 +12,28 @@ $post_type = 'essential_grid';
 $taxonomy = 'essential_grid_category';
 $field = 'slug';
 
+// Define arguments for WP_Query() 
+$args = array(
+	// Custom post type for the Essential Grid plugin
+	'post_type' => $post_type,
+	// Custom taxonomy
+	'tax_query' => array(
+		array(
+			// Custom category for custom post type
+			'taxonomy' => $taxonomy,
+			// Specify that the "terms" below is the slug for the requested category - NOTE: "field" can also be: term_id, name, or term_taxonomy_id (default is term_id)
+			'field' => $field,
+			// Specify the slug for the category - NOTE: "terms" can also be an array
+			'terms' => $category_slug
+		)
+	),
+	// Only return the post ID's
+	'fields' => 'ids'
+);
+// Get custom post ID's for the current custom category
+$query_result = new WP_Query( $args );
+// Pull out just the custom post ID's
+$post_ids = $query_result -> posts;
 // If no posts are found for this category (which should never happen)
 if (!count($post_ids)) {
 	// Send an HTTP status code 404, tell the user, and abort the script
@@ -39,35 +61,6 @@ get_header();
 	/* DISPLAY PROJECTS IN THE CURRENT CATEGORY										*/
 	/********************************************************************************/
 		echo '<h4>Please select a project:</h4>';
-
-	// Define arguments for WP_Query() 
-	$args = array(
-		// Custom post type for the Essential Grid plugin
-		'post_type' => $post_type,
-		// Custom taxonomy
-		'tax_query' => array(
-			array(
-				// Custom category for custom post type
-				'taxonomy' => $taxonomy,
-				// Specify that the "terms" below is the slug for the requested category - NOTE: "field" can also be: term_id, name, or term_taxonomy_id (default is term_id)
-				'field' => $field,
-				// Specify the slug for the category - NOTE: "terms" can also be an array
-				'terms' => $category_slug
-			)
-		),
-		// Only return the post ID's
-		'fields' => 'ids'
-	);
-	// Get custom post ID's for the current custom category
-	$query_result = new WP_Query( $args );
-	/* dev
-	echo '<pre>';
-	print_r($query_result);
-	echo '<pre>';
-	*/
-
-	// Pull out just the custom post ID's
-	$post_ids = $query_result -> posts;
 
 		// Convert the list of custom posts to a comma separated string
 		$essential_grid_posts_csv = implode(',', $post_ids);
