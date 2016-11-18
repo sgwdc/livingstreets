@@ -93,38 +93,37 @@ the_content();
 endwhile;
 */
 
-// Get the name of the category
-$category_name = get_term_by($field, $category_slug, $taxonomy) -> name;
 echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>';
 
+// Display the name of the current category
+$category_name = get_term_by($field, $category_slug, $taxonomy) -> name;
 echo '<h2>Project category: ' . $category_name . '</h2>';
-// Display thumbnail for the current project category
+// Display the thumbnail for the current project category
 echo '<div>' . get_the_post_thumbnail($current_category_post_id, 'thumbnail') . '</div>';
 
 /********************************************************************************/
 /* DISPLAY PROJECTS IN THE CURRENT CATEGORY										*/
 /********************************************************************************/
 echo '<h4>Projects in this category:</h4>';
-
 // Convert the list of custom posts to a comma separated string
 $essential_grid_posts_csv = implode(',', $post_ids);
 // Insert the "Essential Grid" plugin, and pass in the list of posts to display
 echo do_shortcode('[ess_grid alias="portfolio" posts="' . $essential_grid_posts_csv . '"]');
-
 /********************************************************************************/
 /* END: DISPLAY PROJECTS IN THE CURRENT CATEGORY								*/
 /********************************************************************************/
+?>
 
+<br>
+<?php
 /********************************************************************************/
 /* DISPLAY OTHER PROJECT CATEGORIES												*/
 /********************************************************************************/
 ?>
-<br>
 <h4>Other project categories:</h4>
 <?php
 // Convert the list of custom posts to a comma separated string
 $category_post_ids_csv = implode(',', $category_post_ids);
-
 // Insert the "Essential Grid" plugin, and pass in the list of posts to display
 echo do_shortcode('[ess_grid alias="portfolio2" posts="' . $category_post_ids_csv . '"]');
 /********************************************************************************/
