@@ -8,38 +8,9 @@ This is the template used to display portfolio project categories.
 // Get the category "id" from the query string
 $category_slug = $_GET['id'];
 
-/* GET CUSTOM POST IDs FOR THE CURRENT CUSTOM CATEGORY */
 $post_type = 'essential_grid';
 $taxonomy = 'essential_grid_category';
 $field = 'slug';
-// Define arguments for WP_Query() 
-$args = array(
-	// Custom post type for the Essential Grid plugin
-	'post_type' => $post_type,
-	// Custom taxonomy
-	'tax_query' => array(
-		array(
-			// Custom category for custom post type
-			'taxonomy' => $taxonomy,
-			// Specify that the "terms" below is the slug for the requested category - NOTE: "field" can also be: term_id, name, or term_taxonomy_id (default is term_id)
-			'field' => $field,
-			// Specify the slug for the category - NOTE: "terms" can also be an array
-			'terms' => $category_slug
-		)
-	),
-	// Only return the post ID's
-	'fields' => 'ids'
-);
-// Run the query
-$query_result = new WP_Query( $args );
-/* dev
-echo '<pre>';
-print_r($query_result);
-echo '<pre>';
-*/
-
-// Pull out just the custom post ID's
-$post_ids = $query_result -> posts;
 
 // If no posts are found for this category (which should never happen)
 if (!count($post_ids)) {
@@ -57,20 +28,60 @@ get_header();
 		the_content();
 		endwhile;
 		*/
+
 		// Get the name of the category
 		$category_name = get_term_by($field, $category_slug, $taxonomy) -> name;
 		echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>';
 
 		echo '<h2>Project category: ' . $category_name . '</h2>';
 
+	/********************************************************************************/
+	/* DISPLAY PROJECTS IN THE CURRENT CATEGORY										*/
+	/********************************************************************************/
 		echo '<h4>Please select a project:</h4>';
+
+	// Define arguments for WP_Query() 
+	$args = array(
+		// Custom post type for the Essential Grid plugin
+		'post_type' => $post_type,
+		// Custom taxonomy
+		'tax_query' => array(
+			array(
+				// Custom category for custom post type
+				'taxonomy' => $taxonomy,
+				// Specify that the "terms" below is the slug for the requested category - NOTE: "field" can also be: term_id, name, or term_taxonomy_id (default is term_id)
+				'field' => $field,
+				// Specify the slug for the category - NOTE: "terms" can also be an array
+				'terms' => $category_slug
+			)
+		),
+		// Only return the post ID's
+		'fields' => 'ids'
+	);
+	// Get custom post ID's for the current custom category
+	$query_result = new WP_Query( $args );
+	/* dev
+	echo '<pre>';
+	print_r($query_result);
+	echo '<pre>';
+	*/
+
+	// Pull out just the custom post ID's
+	$post_ids = $query_result -> posts;
 
 		// Convert the list of custom posts to a comma separated string
 		$essential_grid_posts_csv = implode(',', $post_ids);
 		// Insert the "Essential Grid" plugin, and pass in the list of posts to display
 		echo do_shortcode('[ess_grid alias="portfolio" posts="' . $essential_grid_posts_csv . '"]');
-	?>
 
+	/********************************************************************************/
+	/* END: DISPLAY PROJECTS IN THE CURRENT CATEGORY								*/
+	/********************************************************************************/
+
+	/********************************************************************************/
+	/* DISPLAY OTHER PROJECT CATEGORIES												*/
+	/********************************************************************************/
+	?>
 	<br>
 	<h4>Other project categories:</h4>
 	<?php
@@ -110,6 +121,9 @@ get_header();
 
 	// Insert the "Essential Grid" plugin, and pass in the list of posts to display
 	echo do_shortcode('[ess_grid alias="portfolio2" posts="' . $category_post_ids_csv . '"]');
+	/********************************************************************************/
+	/* END: DISPLAY OTHER PROJECT CATEGORIES										*/
+	/********************************************************************************/
 	?>
 
 	<br>
