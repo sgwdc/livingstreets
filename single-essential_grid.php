@@ -52,7 +52,7 @@ while ( have_posts() ) : the_post();
 		<!-- Display the post content -->
 		<div class="entry-content">
 			<br>
-			<p><strong>Description:</strong></p>
+			<p class="description"><strong>Description:</strong></p>
 			<?php
 				the_content();
 			?>
@@ -68,15 +68,24 @@ while ( have_posts() ) : the_post();
 // End of the loop
 endwhile;
 
-
 /********************************************************************************/
 /* DISPLAY OTHER PROJECTS IN THE SAME CATEGORY										*/
 /********************************************************************************/
-echo '<br>';
-echo '<h4>Other projects the same categories: ';
+?>
+<br>
+
+<h4>Other projects in the same categor<?php
+	if (count($custom_categories_ass) > 1) {
+		echo 'ies';
+	} else {
+		echo 'y';
+	}
+?>: &nbsp;
+<?php
 showCategories();
 echo '</h4>';
 
+// Create an array of slugs for all the categories this post is in
 $category_slugs = array();
 foreach ($custom_categories_ass as $category_slug => $category_name) {
 	array_push($category_slugs, $category_slug);
@@ -84,6 +93,7 @@ foreach ($custom_categories_ass as $category_slug => $category_name) {
 
 $field = 'slug';
 
+// Get all the projects in the same categories as this project
 // Define arguments for WP_Query() 
 $args = array(
 	// Custom post type for the Essential Grid plugin

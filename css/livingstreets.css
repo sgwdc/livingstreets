@@ -99,3 +99,7 @@ h2.project-title {
 h5.categories {
 	margin:5px 0 0 0;
 }
+/* Reduce spacing below "Description" on project pages */
+div.entry-content p.description {
+	margin-bottom:-10px;
+}

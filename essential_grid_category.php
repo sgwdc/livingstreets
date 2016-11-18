@@ -60,7 +60,7 @@ echo '<h2>Project category: ' . $category_name . '</h2>';
 /********************************************************************************/
 /* DISPLAY PROJECTS IN THE CURRENT CATEGORY										*/
 /********************************************************************************/
-echo '<h4>Please select a project:</h4>';
+echo '<h4>Projects in this category:</h4>';
 
 // Convert the list of custom posts to a comma separated string
 $essential_grid_posts_csv = implode(',', $post_ids);
