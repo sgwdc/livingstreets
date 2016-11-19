@@ -25,8 +25,8 @@ for ($i=0; $i < count($current_custom_categories_array); $i++) {
 $all_custom_categories_array = get_terms( array('taxonomy' => $taxonomy ) );
 $other_custom_categories_array = array();
 for ($i=0; $i < count($all_custom_categories_array); $i++) {
-	// If THIS custom category is not one of the CURRENT custom categories, include it in the array of OTHER custom categories
-	if (!in_array($all_custom_categories_array[$i], $current_custom_categories_array)) {
+	// If THIS custom category is not one of the custom categories the CURRENT post is in (and not one of the categories itself), include it in the array of OTHER custom categories
+	if (!in_array($all_custom_categories_array[$i], $current_custom_categories_array) && $all_custom_categories_array[$i] -> slug != "0-categories") {
 		array_push($other_custom_categories_array, $all_custom_categories_array[$i]);
 	}
 }
@@ -119,8 +119,7 @@ endwhile;
 /********************************************************************************/
 ?>
 <br>
-
-<h4>Other projects in the same categor<?php
+<h4>Other projects in the categor<?php
 	if (count($current_custom_categories_array) > 1) {
 		echo 'ies';
 	} else {
@@ -136,6 +135,16 @@ $essential_grid_posts_csv = implode(',', $post_ids);
 // Insert the "Essential Grid" plugin, and pass in the list of posts to display
 echo do_shortcode('[ess_grid alias="portfolio2" posts="' . $essential_grid_posts_csv . '"]');
 ?>
+
+<?php
+/********************************************************************************/
+/* DISPLAY CUSTOM CATEGORIES THIS POST IS _NOT_ IN								*/
+/********************************************************************************/
+?>
+<br>
+<h4>Other categories: &nbsp; <?php showCategories($other_custom_categories_array); ?></h4>
+
+
 <br>
 <p><a href="/portfolio/">Return to all projects</a></p>
 <p><a href="/">Home</a></p>
@@ -145,6 +154,7 @@ echo do_shortcode('[ess_grid alias="portfolio2" posts="' . $essential_grid_posts
 <?php get_footer(); ?>
 
 <?php
+// Used to show custom categories the current post IS in, and custom categories the post is NOT in
 function showCategories($categories_array) {
 	// Iterate through each category
 	for ($i=0; $i < count($categories_array); $i++) {
