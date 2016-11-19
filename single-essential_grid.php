@@ -164,7 +164,7 @@ function showCategories($categories_array) {
 		if ($i != 0) {
 			echo ' &nbsp;|&nbsp; ';
 		}
-		$category_url = '/portfolio/category/?id=' . $categories_array[$i] -> slug;
+		$category_url = '/portfolio/' . $categories_array[$i] -> slug;
 		$category_name = $categories_array[$i] -> name;
 		echo '<a href="' . $category_url . '"';
 		echo ' style="font-weight:normal;"';
