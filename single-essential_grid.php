@@ -121,7 +121,7 @@ endwhile;
 /********************************************************************************/
 ?>
 <br>
-<h4>Other projects in the categor<?php
+<h4>Other projects in the same categor<?php
 	if (count($current_custom_categories_array) > 1) {
 		echo 'ies';
 	} else {
