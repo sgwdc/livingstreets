@@ -64,10 +64,12 @@ for ($i=0; $i < count($post_ids); $i++) {
 }
 
 get_header();
+?>
 
+<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>
+<?php
 // Start the loop
 while ( have_posts() ) : the_post();
-	echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>';
 
 	echo '<h2 class="project-title">';
 	// Display the post title

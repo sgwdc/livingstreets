@@ -92,9 +92,10 @@ while ( have_posts() ) : the_post();
 the_content();
 endwhile;
 */
+?>
 
-echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>';
-
+<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>
+<?php
 // Display the name of the current category
 $category_name = get_term_by($field, $category_slug, $taxonomy) -> name;
 echo '<h2>Project category: ' . $category_name . '</h2>';
