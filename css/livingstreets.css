@@ -84,11 +84,13 @@ table, tr, td {
 }
 */
 
-.edit-link {
+span.edit-link {
 	font-weight:normal;
 	font-size:12px;
 }
-
+span.edit-link a {
+	color:#f66;
+}
 a.headerhomelink {
 	text-decoration: none;
 }
