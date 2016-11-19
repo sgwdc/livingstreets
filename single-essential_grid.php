@@ -8,15 +8,27 @@ $taxonomy = 'essential_grid_category';
 $field = 'slug';
 
 /********************************************************************************/
-/* GET ALL THE CUSTOM CATEGORIES THAT THIS CUSTOM POST IS IN					*/
+/* GET ALL THE CUSTOM CATEGORIES THAT THIS CUSTOM POST _IS_ IN					*/
 /********************************************************************************/
 global $post;
-// Get the list of custom categories that this project post is in
-$custom_categories_array = wp_get_object_terms( $post->ID, $taxonomy);
-// Create an array of slugs for all the custom categories this custom post is in
+// Get the list of custom categories that this custom post IS in
+$current_custom_categories_array = wp_get_object_terms( $post->ID, $taxonomy);
+// Create an array of slugs for all the custom categories this custom post IS in
 $category_slugs = array();
-for ($i=0; $i < count($custom_categories_array); $i++) {
-	array_push($category_slugs, $custom_categories_array[$i] -> slug);
+for ($i=0; $i < count($current_custom_categories_array); $i++) {
+	array_push($category_slugs, $current_custom_categories_array[$i] -> slug);
+}
+
+/********************************************************************************/
+/* GET ALL THE CUSTOM CATEGORIES THAT THIS CUSTOM POST IS _NOT_ IN				*/
+/********************************************************************************/
+$all_custom_categories_array = get_terms( array('taxonomy' => $taxonomy ) );
+$other_custom_categories_array = array();
+for ($i=0; $i < count($all_custom_categories_array); $i++) {
+	// If THIS custom category is not one of the CURRENT custom categories, include it in the array of OTHER custom categories
+	if (!in_array($all_custom_categories_array[$i], $current_custom_categories_array)) {
+		array_push($other_custom_categories_array, $all_custom_categories_array[$i]);
+	}
 }
 
 /********************************************************************************/
@@ -58,7 +70,7 @@ while ( have_posts() ) : the_post();
 	echo '<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>';
 
 	echo '<h2 class="project-title">';
-	// Display the project title
+	// Display the post title
 	echo get_the_title();
 	// Link to the "Edit" page if the user has access
 	edit_post_link(
@@ -72,7 +84,7 @@ while ( have_posts() ) : the_post();
 	echo '</h2>';
 
 	echo '<h5 class="categories">Categories: &nbsp;';
-	showCategories($custom_categories_array);
+	showCategories($current_custom_categories_array);
 	echo '</h5>';
 	?>
 
@@ -92,7 +104,7 @@ while ( have_posts() ) : the_post();
 			?>
 		</div>
 
-		<!-- Display the project's Featured Image -->
+		<!-- Display the post's Featured Image -->
 		<div class="post-thumbnail">
 			<?php the_post_thumbnail(); ?>
 		</div>
@@ -109,14 +121,14 @@ endwhile;
 <br>
 
 <h4>Other projects in the same categor<?php
-	if (count($custom_categories_array) > 1) {
+	if (count($current_custom_categories_array) > 1) {
 		echo 'ies';
 	} else {
 		echo 'y';
 	}
 ?>: &nbsp;
 <?php
-showCategories($custom_categories_array);
+showCategories($current_custom_categories_array);
 echo '</h4>';
 
 // Convert the list of custom posts to a comma separated string
@@ -133,15 +145,15 @@ echo do_shortcode('[ess_grid alias="portfolio2" posts="' . $essential_grid_posts
 <?php get_footer(); ?>
 
 <?php
-function showCategories($custom_categories_array) {
-	// Iterate through each custom category that contains this custom post
-	for ($i=0; $i < count($custom_categories_array); $i++) {
+function showCategories($categories_array) {
+	// Iterate through each category
+	for ($i=0; $i < count($categories_array); $i++) {
 		// If this is not the first category displayed, add a divider
 		if ($i != 0) {
 			echo ' &nbsp;|&nbsp; ';
 		}
-		$category_url = '/portfolio/category/?id=' . $custom_categories_array[$i] -> slug;
-		$category_name = $custom_categories_array[$i] -> name;
+		$category_url = '/portfolio/category/?id=' . $categories_array[$i] -> slug;
+		$category_name = $categories_array[$i] -> name;
 		echo '<a href="' . $category_url . '"';
 		echo ' style="font-weight:normal;"';
 		echo '>' . $category_name . '</a>';
