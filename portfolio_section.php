@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Essential Grid Category
+Template Name: Portfolio Section
 
 This the template is used for pages under the "Portfolio" page that display a portfolio section
 */
