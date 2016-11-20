@@ -32,8 +32,12 @@ a:active {
 	text-decoration: none;
 }
 /* For clearing floats */
-.clearfix {
-	overflow: auto;
+.clearfix:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
 }
 div.divider {
 	background-color:#000;
