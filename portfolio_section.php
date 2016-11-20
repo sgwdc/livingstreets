@@ -24,10 +24,10 @@ $args = array(
 	// Only return the page ID's
 	'fields' => 'ids'
 );
-$project_page_ids = get_posts( $args );
+$project_page_ids_array = get_posts( $args );
 
 // If no pages are found for this category (which should hopefully never happen)
-if (!count($project_page_ids)) {
+if (!count($project_page_ids_array)) {
 	// Send an HTTP status code 404, tell the user, and abort the script
 	header("HTTP/1.0 404 Not Found");
 	echo "Project category contains no projects";
@@ -52,7 +52,7 @@ $args = array(
 	// Only return the page ID's
 	'fields' => 'ids'
 );
-$other_pages_ids = get_posts( $args );
+$other_page_ids_array = get_posts( $args );
 
 get_header();
 
@@ -76,7 +76,7 @@ echo '<div>' . get_the_post_thumbnail(null, 'thumbnail') . '</div>';
 /********************************************************************************/
 echo '<h4>Projects in this category:</h4>';
 // Convert the list of pages to a comma separated string
-$project_page_ids_csv = implode(',', $project_page_ids);
+$project_page_ids_csv = implode(',', $project_page_ids_array);
 // Insert the "Essential Grid" plugin, and pass in the list of pages to display
 echo do_shortcode('[ess_grid alias="portfolio" posts="' . $project_page_ids_csv . '"]');
 /********************************************************************************/
@@ -94,9 +94,9 @@ echo do_shortcode('[ess_grid alias="portfolio" posts="' . $project_page_ids_csv 
 <h4>Other project categories:</h4>
 <?php
 // Convert the list of pages to a comma separated string
-$other_pages_ids_csv = implode(',', $other_pages_ids);
+$other_page_ids_csv = implode(',', $other_page_ids_array);
 // Insert the "Essential Grid" plugin, and pass in the list of pages to display
-echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_pages_ids_csv . '"]');
+echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_page_ids_csv . '"]');
 /********************************************************************************/
 /* END: DISPLAY OTHER PORTFOLIO SECTIONS										*/
 /********************************************************************************/

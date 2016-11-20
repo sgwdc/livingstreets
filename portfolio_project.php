@@ -35,7 +35,7 @@ $args = array(
 	'fields' => 'ids'
 );
 $other_pages = new WP_Query( $args );
-$other_pages_ids_array = $other_pages -> posts;
+$other_page_ids_array = $other_pages -> posts;
 
 get_header();
 ?>
@@ -105,9 +105,9 @@ showCategories($current_categories_array);
 echo '</h4>';
 
 // Convert the list of pages to a comma separated string
-$other_pages_ids_csv = implode(',', $other_pages_ids_array);
+$other_page_ids_csv = implode(',', $other_page_ids_array);
 // Insert the "Essential Grid" plugin, and pass in the list of pages to display
-echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_pages_ids_csv . '"]');
+echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_page_ids_csv . '"]');
 ?>
 
 <?php
