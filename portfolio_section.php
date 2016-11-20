@@ -28,9 +28,8 @@ $project_page_ids_array = get_posts( $args );
 
 // If no pages are found for this category (which should hopefully never happen)
 if (!count($project_page_ids_array)) {
-	// Send an HTTP status code 404, tell the user, and abort the script
-	header("HTTP/1.0 404 Not Found");
-	echo "Project category contains no projects";
+	// Redirect to the portfolio homepage
+	header("Location: " . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
 	exit;
 }
 
