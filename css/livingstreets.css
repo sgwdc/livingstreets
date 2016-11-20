@@ -125,11 +125,21 @@ div#living-streets-header div {
 div#living-streets-header div:nth-of-type(1) {
 	padding-right: 15px;
 }
+div#living-streets-header img {
+	border:3px #fff solid;
+}
 div#living-streets-header h1 {
 	margin: 0;
 	display: inline-block;
 	vertical-align: middle;
 	line-height: 40px;
+	cursor: default;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Chrome/Safari/Opera */
+	-khtml-user-select: none; /* Konqueror */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently not supported by any browser */
 }
 div#living-streets-header h1 a {
 	text-decoration: none;
