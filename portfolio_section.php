@@ -96,7 +96,7 @@ echo do_shortcode('[ess_grid alias="portfolio" posts="' . $project_page_ids_csv 
 // Convert the list of pages to a comma separated string
 $other_pages_ids_csv = implode(',', $other_pages_ids);
 // Insert the "Essential Grid" plugin, and pass in the list of pages to display
-echo do_shortcode('[ess_grid alias="portfolio2" posts="' . $other_pages_ids_csv . '"]');
+echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_pages_ids_csv . '"]');
 /********************************************************************************/
 /* END: DISPLAY OTHER PORTFOLIO SECTIONS										*/
 /********************************************************************************/
