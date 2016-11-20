@@ -7,7 +7,7 @@ body, html {
 	font-family: 'Lato', sans-serif;
 }
 div#fotoliacontainer {
-	margin: -8px;
+	margin: 0 -8px;
 }
 div#fotoliainnercontainer {
 	max-height:250px;
@@ -97,13 +97,33 @@ span.edit-link a {
 }
 
 /* Living Streets header */
-h1.living-streets-header a {
+div#living-streets-header {
+	margin: 20px 0 15px 0;
+}
+div#living-streets-header div {
+	float: left;
+	height: 100px;
+	line-height: 100px;
+}
+div#living-streets-header div:nth-of-type(1) {
+	padding-right: 15px;
+}
+div#living-streets-header h1 {
+	margin: 0;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 40px;
+}
+div#living-streets-header h1 a {
 	text-decoration: none;
 }
-h1.living-streets-header img {
-	padding-right: 10px;
-	vertical-align: middle;
+/* Wrap "Living Streets Consulting" if necessary */
+@media screen and (max-width: 510px) {
+	div#living-streets-header h1 {
+		width: 200px;
+	}
 }
+/* END Living Streets header */
 
 /* Remove space between project titles and categories */
 h2.project-title {
