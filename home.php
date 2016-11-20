@@ -9,7 +9,7 @@
 		<!-- This will be used to clip the Fotolia image at 200px -->
 		<div id="fotoliainnercontainer">
 			<!-- The Fotolia image will be at least 200px, and full width -->
-			<img id="fotolia" src="http://livingstreets.com/wp-content/uploads/2016/09/Fotolia_48180217_XL_v4.jpg">
+			<img id="fotolia" src="<?php echo get_template_directory_uri(); ?>/images/Fotolia_48180217_XL_v4.jpg">
 		</div>
 		<div class="divider">&nbsp;</div>
 	</div>
