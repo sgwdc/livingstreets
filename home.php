@@ -15,7 +15,7 @@
 	</div>
 	
 	<div class="clearfix">
-		<div style="float:left; /* dev:; border: 1px #f00 solid; */"><p>Interactive mapping web applications</p></div>
+		<div style="float:left; /* dev:; border: 1px #f00 solid; */"><p><?php echo get_bloginfo('description'); ?></p></div>
 		<div style="float:right; /* dev: border: 1px #f00 solid; */"><p><a href="/contact-form/">Contact</a></p></div>
 	</div>
 
