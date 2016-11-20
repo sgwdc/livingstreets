@@ -112,3 +112,6 @@ h5.categories {
 div.entry-content p.description {
 	margin-bottom:-10px;
 }
+.admin-notice {
+	color:#f00;
+}
