@@ -91,9 +91,16 @@ span.edit-link {
 span.edit-link a {
 	color:#f66;
 }
-a.headerhomelink {
+
+/* Living Streets header */
+h1.living-streets-header a {
 	text-decoration: none;
 }
+h1.living-streets-header img {
+	padding-right: 10px;
+	vertical-align: middle;
+}
+
 /* Remove space between project titles and categories */
 h2.project-title {
 	margin:0;
