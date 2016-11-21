@@ -74,22 +74,35 @@ while ( have_posts() ) : the_post();
 		/* Not sure whether we'll use this or not
 			the_excerpt();
 		*/
+
+		// If the project has a description, display it
+		$the_content = get_the_content();
+		if (strlen($the_content) > 0) {
 		?>
-
-		<!-- Display the page content -->
-		<div class="entry-content">
-			<br>
-			<p class="description"><strong>Description:</strong></p>
-			<?php
+			<!-- Display the page content -->
+			<div class="entry-content">
+				<br>
+				<p class="description"><strong>Description:</strong></p>
+				<?php
+				// Don't use get_the_content() to display the project description because it doesn't pass through the "the_content" filter
 				the_content();
-			?>
-		</div>
+				?>
+			</div>
+		<?php
+		}
 
-		<p class="screenshot"><strong>Screenshot:</strong></p>
-		<!-- Display the page's Featured Image -->
-		<div class="post-thumbnail">
-			<?php the_post_thumbnail('full', array('style' => 'border:2px #000 solid;')); ?>
-		</div>
+		// If the project has a Featured Image, display it
+		$the_thumbnail = get_the_post_thumbnail( null, 'full', array('style' => 'border:2px #000 solid;'));
+		if (strlen($the_thumbnail) > 0) {
+		?>
+			<p class="screenshot"><strong>Screenshot:</strong></p>
+			<!-- Display the page's Featured Image -->
+			<div class="post-thumbnail">
+				<?php echo $the_thumbnail; ?>
+			</div>
+		<?php
+		}
+		?>
 	</article><!-- #post-## -->
 
 <?php
