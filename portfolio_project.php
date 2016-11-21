@@ -85,9 +85,10 @@ while ( have_posts() ) : the_post();
 			?>
 		</div>
 
+		<p class="screenshot"><strong>Screenshot:</strong></p>
 		<!-- Display the page's Featured Image -->
 		<div class="post-thumbnail">
-			<?php the_post_thumbnail(); ?>
+			<?php the_post_thumbnail('full', array('style' => 'border:2px #000 solid;')); ?>
 		</div>
 	</article><!-- #post-## -->
 
