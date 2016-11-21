@@ -70,7 +70,18 @@ if ($post_status != "publish") {
 <h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>
 <?php
 // Display the name of the current portfolio section
-echo '<h2>Project category: ' . $page_name . '</h2>';
+echo '<h2>Project category: ' . $page_name;
+
+// Link to the "Edit" page if the user has access
+edit_post_link(
+	sprintf(
+		__( 'Edit category page' ),
+		get_the_title()
+	),
+	'<span class="edit-link"> &nbsp;&nbsp; [ ',
+	' ]</span>'
+);
+echo '</h2>';
 // Display the thumbnail image for the current portfolio section
 echo '<div>' . get_the_post_thumbnail(null, 'thumbnail') . '</div>';
 
