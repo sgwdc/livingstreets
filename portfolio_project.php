@@ -64,7 +64,12 @@ while ( have_posts() ) : the_post();
 	);
 	echo '</h2>';
 
-	echo '<h5 class="categories">Categories: &nbsp;';
+	echo '<h5 class="categories">';
+	if (count($current_categories_array) > 1) {
+		echo 'Categories: &nbsp;';
+	} else {
+		echo 'Category: &nbsp;';
+	}
 	showCategories($current_categories_array);
 	echo '</h5>';
 	?>
