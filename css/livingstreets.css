@@ -113,7 +113,7 @@ span.edit-link a {
 	color:#f66;
 }
 
-/* Living Streets header */
+/* Living Streets header (Note: Other styles are set in header.php using jQuery) */
 div#living-streets-header {
 	margin: 20px 0 15px 0;
 }
@@ -133,7 +133,7 @@ div#living-streets-header h1 {
 	display: inline-block;
 	vertical-align: middle;
 	line-height: 40px;
-	cursor: default;
+	/* Disable selecting text in "Living Streets Consulting" */
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Chrome/Safari/Opera */
 	-khtml-user-select: none; /* Konqueror */

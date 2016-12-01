@@ -20,13 +20,19 @@ include $RelativeToRoot . 'visitor_tracker.php';
 	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
 	<!-- Hook for plugins to insert code here (Avoids need to move WordPress Toolbar to the bottom of the browser window) -->
 	<?php wp_head(); ?>
-	<?php
-		if ($_SERVER['REQUEST_URI'] == "/") $isHomepage = true; else $isHomepage = false;
-		if (!$isHomepage) {
-		?>
-		<script>
-			// Fire when jQuery has finished loading
-			jQuery( document ).ready(function() {
+	<script>
+		// Fire when jQuery has finished loading
+		jQuery( document ).ready(function() {
+			<?php
+			if ($_SERVER['REQUEST_URI'] == "/") $isHomepage = true; else $isHomepage = false;
+			// If this is the homepage, disable the mouse pointer for the "Living Streets Consulting" header
+			if ($isHomepage) {
+			?>
+				jQuery( "div#living-streets-header h1" ).css('cursor', 'default');
+			<?php
+			// If this is any other page, use jQuery to give "Living Streets Consulting" and the company logo a consistent border on hover, click and normal
+			} else {
+			?>
 				// Define events for company name and logo
 				jQuery( "div#living-streets-header" )
 					.on('mouseenter mouseup', function() {
@@ -38,11 +44,11 @@ include $RelativeToRoot . 'visitor_tracker.php';
 					.on('mousedown', function() {
 						jQuery( this ).find( 'img' ).css("border-color", "#f00");
 					})
-			});
-		</script>
-	<?php
-		}
-	?>
+			<?php
+			}
+			?>
+		});
+	</script>
 </head>
 <body bgcolor="#005799" <?php body_class(); ?>>
 	<?php
