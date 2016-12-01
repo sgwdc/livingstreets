@@ -75,7 +75,7 @@ echo '<h2>Project category: ' . $page_name;
 // Link to the "Edit" page if the user has access
 edit_post_link(
 	sprintf(
-		__( 'Edit category page' ),
+		__( 'Edit category' ),
 		get_the_title()
 	),
 	'<span class="edit-link"> &nbsp;&nbsp; [ ',
