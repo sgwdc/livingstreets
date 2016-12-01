@@ -44,7 +44,7 @@ include $RelativeToRoot . 'visitor_tracker.php';
 		}
 	?>
 </head>
-<body bgcolor="#0067b5" <?php body_class(); ?>>
+<body bgcolor="#005799" <?php body_class(); ?>>
 	<?php
 		if (!$isHomepage) echo '<a href="/">';
 	?>
