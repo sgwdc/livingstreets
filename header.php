@@ -52,6 +52,9 @@ include $RelativeToRoot . 'visitor_tracker.php';
 </head>
 <body bgcolor="#005799" <?php body_class(); ?>>
 	<?php
+		// Google Analytics tracking
+		include_once("analyticstracking.php");
+
 		if (!$isHomepage) echo '<a href="/">';
 	?>
 	<div id="living-streets-header" class="clearfix">
