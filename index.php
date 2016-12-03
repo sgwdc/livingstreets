@@ -17,12 +17,6 @@ if ($post_status != "publish") {
 <?php the_content(); ?>
 <?php endwhile; ?>
 
-<!-- Moved to individual pages so it can be center or left aligned (moved back since home.php is the only page where it's left aligned)
-<p><a href="/">Home</a></p>
--->
-
-<p><a href="/">Home</a></p>
-
 <p>&nbsp;</p>
 
 <?php get_footer(); ?>

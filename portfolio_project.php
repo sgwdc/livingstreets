@@ -142,7 +142,6 @@ echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_page_ids_
 
 <br>
 <p><a href="/portfolio/">Return to all projects</a></p>
-<p><a href="/">Home</a></p>
 
 <p>&nbsp;</p>
 

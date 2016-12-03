@@ -17,7 +17,7 @@ if (substr($_SERVER['REQUEST_URI'], 0, 33) == "/portfolio/gis%E2%80%90geospatial
 
 	Page not found
 
-	<p><a href="/">Home</a></p>
+	<p><a href="/">Homepage</a></p>
 
 	<p>&nbsp;</p>
 
