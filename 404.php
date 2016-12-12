@@ -15,7 +15,11 @@ if (substr($_SERVER['REQUEST_URI'], 0, 33) == "/portfolio/gis%E2%80%90geospatial
 
 <?php get_header(); ?>
 
-	Page not found
+	<br>
+
+	<p>Page not found</p>
+
+	<br>
 
 	<p><a href="/">Homepage</a></p>
 
