@@ -18,11 +18,43 @@ $args = array(
 );
 $current_categories_ids_array = wp_get_post_categories( $post->ID, $args);
 
-// Get all the categories that this page is _NOT_ in
+// Get the page slugs for all the categories that this page is _NOT_ in
 $args = array(
 	'exclude' => $current_categories_ids_array,
+	'fields' => 'id=>slug'
 );
 $other_categories_array = get_categories( $args);
+
+/********************************************************************************/
+/* GET THE PAGES FOR _ALL_ THE PORTFOLIO SECTIONS								*/
+/********************************************************************************/
+$portfolio_page_id = get_page_by_path('portfolio') -> ID;
+$projects_page_id = get_page_by_path('portfolio/projects') -> ID;
+$args = array(
+	'post_type'        => 'page',
+	'post_parent'      => $portfolio_page_id,
+	'exclude'          => $projects_page_id,
+	'orderby'          => 'date',
+	'order'            => 'DESC',
+	'post_status'      => 'publish',
+	'posts_per_page'   => -1
+);
+$category_pages_array = get_posts( $args );
+/********************************************************************************/
+/* GET THE PAGE ID'S FOR ONLY THE "OTHER" PORTFOLIO SECTIONS					*/
+/********************************************************************************/
+// Create an array to hold the page ID's for the "other" category pages
+$other_category_page_ids_array = array();
+// Iterate over all the category pages
+for ($oneCategoryPage=0; $oneCategoryPage < count($category_pages_array); $oneCategoryPage++) {
+	$post_name = $category_pages_array[$oneCategoryPage] -> post_name;
+	// If this category page correlates (has the same slug) as one of the "other" categories
+	if (in_array($post_name, $other_categories_array)) {
+		// Save the page ID for later
+		$ID = $category_pages_array[$oneCategoryPage] -> ID;
+		array_push($other_category_page_ids_array, $ID);
+	}
+}
 
 // Get all the page ID's in the same categories as this page
 $args = array(
@@ -141,8 +173,13 @@ echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_page_ids_
 // Display categories this page is _NOT_ in
 ?>
 <br>
-<h4>Other categories: &nbsp; <?php showCategories($other_categories_array); ?></h4>
-
+<h4>Other categories:</h4>
+<?php
+// Convert the list of pages to a comma separated string
+$other_category_page_ids_csv = implode(',', $other_category_page_ids_array);
+// Insert the "Essential Grid" plugin, and pass in the list of pages to display
+echo do_shortcode('[ess_grid alias="portfolio" posts="' . $other_category_page_ids_csv . '"]');
+?>
 <br>
 
 <?php
