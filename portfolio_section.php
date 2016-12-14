@@ -124,7 +124,7 @@ include('portfolio_footer.php');
 
 <br>
 
-<p><a href="/portfolio/">Return to all projects</a></p>
+<p><a href="/portfolio/">Return to portfolio homepage</a></p>
 
 <p>&nbsp;</p>
 
