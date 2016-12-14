@@ -117,6 +117,13 @@ echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_page_ids_
 ?>
 
 <br>
+
+<?php
+include('portfolio_footer.php');
+?>
+
+<br>
+
 <p><a href="/portfolio/">Return to all projects</a></p>
 
 <p>&nbsp;</p>

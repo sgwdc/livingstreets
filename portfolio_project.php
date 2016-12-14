@@ -144,6 +144,13 @@ echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_page_ids_
 <h4>Other categories: &nbsp; <?php showCategories($other_categories_array); ?></h4>
 
 <br>
+
+<?php
+include('portfolio_footer.php');
+?>
+
+<br>
+
 <p><a href="/portfolio/">Return to all projects</a></p>
 
 <p>&nbsp;</p>
