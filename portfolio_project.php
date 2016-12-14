@@ -50,7 +50,7 @@ if ($post_status != "publish") {
 // Start the loop
 while ( have_posts() ) : the_post();
 
-	echo '<h2 class="project-title">';
+	echo '<h2 class="project-title">Project: ';
 	// Display the page title
 	echo get_the_title();
 	// Link to the "Edit" page if the user has access
@@ -72,6 +72,9 @@ while ( have_posts() ) : the_post();
 	}
 	showCategories($current_categories_array);
 	echo '</h5>';
+
+	// Display the thumbnail image for the current portfolio project
+	echo '<div>' . get_the_post_thumbnail(null, 'thumbnail') . '</div>';
 	?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
