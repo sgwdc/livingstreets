@@ -49,7 +49,7 @@ echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $all_page_ids_cs
 <p>&nbsp;</p>
 
 <?php
-include('portfolio_footer.php');
+	include('portfolio_footer.php');
 ?>
 
 <?php get_footer(); ?>

@@ -8,25 +8,26 @@ This template is used for pages under the /portfolio/projects/ page, which displ
 // Get the categories that this page _IS_ in
 global $post;
 $args = array(
-	'fields' => 'all',
+	'fields' => 'all'
 );
-$current_categories_array = wp_get_post_categories( $post->ID, $args);
+$current_categories_array = wp_get_post_categories( $post->ID, $args );
 
 // Get the category IDs that this page _IS_ in
 $args = array(
-	'fields' => 'ids',
+	'fields' => 'ids'
 );
-$current_categories_ids_array = wp_get_post_categories( $post->ID, $args);
+$current_categories_ids_array = wp_get_post_categories( $post->ID, $args );
 
 // Get the page slugs for all the categories that this page is _NOT_ in
 $args = array(
 	'exclude' => $current_categories_ids_array,
 	'fields' => 'id=>slug'
 );
-$other_categories_array = get_categories( $args);
+$other_categories_array = get_categories( $args );
 
 /********************************************************************************/
-/* GET THE PAGES FOR _ALL_ THE PORTFOLIO SECTIONS								*/
+/* GET THE PAGES FOR _ALL_ THE PORTFOLIO SECTIONS (CHILD PAGES OF THE PAGE WITH	*/
+/* THE SLUG "PORTFOLIO")														*/
 /********************************************************************************/
 $portfolio_page_id = get_page_by_path('portfolio') -> ID;
 $projects_page_id = get_page_by_path('portfolio/projects') -> ID;
@@ -183,7 +184,7 @@ echo do_shortcode('[ess_grid alias="portfolio" posts="' . $other_category_page_i
 <br>
 
 <?php
-include('portfolio_footer.php');
+	include('portfolio_footer.php');
 ?>
 
 <br>

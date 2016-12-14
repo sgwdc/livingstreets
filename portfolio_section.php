@@ -34,8 +34,8 @@ if (!count($project_page_ids_array)) {
 }
 
 /********************************************************************************/
-/* GET PAGE ID'S FOR ALL THE OTHER PORTFOLIO SECTIONS (CHILD PAGES OF THE PAGE	*/
-/* WITH THE SLUG "PORTFOLIO")													*/
+/* GET PAGE ID'S FOR ALL THE "OTHER" PORTFOLIO SECTIONS (CHILD PAGES OF THE		*/
+/* PAGE WITH THE SLUG "PORTFOLIO")												*/
 /********************************************************************************/
 $portfolio_page_id = get_page_by_path('portfolio') -> ID;
 $projects_page_id = get_page_by_path('portfolio/projects') -> ID;
@@ -55,12 +55,6 @@ $other_page_ids_array = get_posts( $args );
 
 get_header();
 
-/* Not sure whether we'll use this or not
-// Display page content
-while ( have_posts() ) : the_post();
-the_content();
-endwhile;
-*/
 $post_status = get_post_status();
 if ($post_status != "publish") {
 	echo '<h1 class="admin-notice">This Page Will Not Be Displayed Publicly Because Post Status = ' . $post_status . '</h1>';
@@ -93,10 +87,6 @@ echo '<h4><br>Please select a project:</h4>';
 $project_page_ids_csv = implode(',', $project_page_ids_array);
 // Insert the "Essential Grid" plugin, and pass in the list of pages to display
 echo do_shortcode('[ess_grid alias="portfolio" posts="' . $project_page_ids_csv . '"]');
-/********************************************************************************/
-/* END: DISPLAY PAGES IN THE CATEGORY ASSOCIATED WITH THE CURRENT PORTFOLIO 	*/
-/* SECTION																		*/
-/********************************************************************************/
 ?>
 
 <br>
@@ -111,15 +101,12 @@ echo do_shortcode('[ess_grid alias="portfolio" posts="' . $project_page_ids_csv 
 $other_page_ids_csv = implode(',', $other_page_ids_array);
 // Insert the "Essential Grid" plugin, and pass in the list of pages to display
 echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_page_ids_csv . '"]');
-/********************************************************************************/
-/* END: DISPLAY OTHER PORTFOLIO SECTIONS										*/
-/********************************************************************************/
 ?>
 
 <br>
 
 <?php
-include('portfolio_footer.php');
+	include('portfolio_footer.php');
 ?>
 
 <br>
