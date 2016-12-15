@@ -86,8 +86,10 @@ img {
 	/* Doesn't seem to be necessary
     vertical-align: middle;
     */
+    /* Also no longer necessary, and causes problems
     height: auto;
     max-width: 100%;
+    */
 }
 td {
 	width: 50%;

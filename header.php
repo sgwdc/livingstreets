@@ -61,7 +61,7 @@ include $RelativeToRoot . 'visitor_tracker.php';
 	?>
 	<div id="living-streets-header" class="clearfix">
 		<div>
-			<img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_100px.png">
+			<img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_100px.png" width="100" height="100">
 		</div>
 		<div>
 			<h1>
