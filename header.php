@@ -1,6 +1,20 @@
 <?php
 $RelativeToRoot = "";
 include $RelativeToRoot . 'visitor_tracker.php';
+
+// If this IS a portfolio page
+if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
+	$isPortfolio = true;
+	// Save whether this is the top-level portfolio page
+	if ($_SERVER['REQUEST_URI'] == "/portfolio/") $isHomepage = true;
+	else $isHomepage = false;
+// Otherwise it's NOT a portfolio page
+} else {
+	$isPortfolio = false;
+	// Save whether this is the top-level page
+	if ($_SERVER['REQUEST_URI'] == "/") $isHomepage = true;
+	else $isHomepage = false;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +40,6 @@ include $RelativeToRoot . 'visitor_tracker.php';
 		// Fire when jQuery has finished loading
 		jQuery( document ).ready(function() {
 			<?php
-			if ($_SERVER['REQUEST_URI'] == "/") $isHomepage = true; else $isHomepage = false;
 			// If this is the homepage, disable the mouse pointer for the "Living Streets Consulting" header
 			if ($isHomepage) {
 			?>
@@ -56,8 +69,13 @@ include $RelativeToRoot . 'visitor_tracker.php';
 	<?php
 		// Google Analytics tracking
 		include_once("analyticstracking.php");
-
-		if (!$isHomepage) echo '<a href="/">';
+		// If this is a page within the portfolio, but not the homepage, link to the portfolio homepage
+		if ($isPortfolio && !$isHomepage) {
+			echo '<a href="/portfolio/">';
+		// Otherwise if this is not a page within the portfolio, and not the homepage, link to the homepage
+		} else if (!$isPortfolio && !$isHomepage) {
+			echo '<a href="/">';
+		}
 	?>
 	<div id="living-streets-header" class="clearfix">
 		<div>
