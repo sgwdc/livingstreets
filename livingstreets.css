@@ -177,3 +177,6 @@ div.section-divider {
 	margin-top:50px;
 	border-bottom: 1px #fff dashed; /* or dotted */
 }
+img.profile-button {
+	border:1px #000 solid;
+}
