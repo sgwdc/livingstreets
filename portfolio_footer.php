@@ -7,7 +7,7 @@
 
 <h4>See my LinkedIn and GitHub profiles:</h4>
 <p>
-	<a href="http://www.linkedin.com/in/stevengreenwaters" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/LinkedIn_button.png" class="profile-button" alt="View Steven Greenwaters' profile on LinkedIn"></a>
+	<a href="https://www.linkedin.com/in/stevengreenwaters" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/LinkedIn_button.png" class="profile-button" alt="View Steven Greenwaters' profile on LinkedIn"></a>
 	&nbsp; &nbsp;
 	<a href="https://github.com/sgwdc" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/GitHub_button.png" class="profile-button" alt="View Steven Greenwaters' profile on GitHub"></a>
 </p>

@@ -113,15 +113,11 @@ while ( have_posts() ) : the_post();
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php
-		/* Not sure whether we'll use this or not
-			the_excerpt();
-		*/
-
 		// If the project has a description, display it
 		$the_content = get_the_content();
 		if (strlen($the_content) > 0) {
 		?>
-			<!-- Display the page content -->
+			<?php /* Display the page content */ ?>
 			<div class="entry-content">
 				<br>
 				<p class="description"><strong>Description:</strong></p>
@@ -133,7 +129,7 @@ while ( have_posts() ) : the_post();
 		<?php
 		}
 		?>
-	</article><!-- #post-## -->
+	</article>
 
 <?php
 // End of the loop

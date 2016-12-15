@@ -4,6 +4,7 @@ Template Name: Portfolio Homepage
 
 This template is used for the portfolio homepage, /portfolio/
 */
+
 // Get all the page ID's for all projects
 $args = array(
 	'orderby' => 'date',
