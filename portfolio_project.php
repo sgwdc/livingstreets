@@ -132,18 +132,6 @@ while ( have_posts() ) : the_post();
 			</div>
 		<?php
 		}
-
-		// If the project has a Featured Image, display it
-		$the_thumbnail = get_the_post_thumbnail( null, 'full', array('style' => 'border:2px #000 solid;'));
-		if (strlen($the_thumbnail) > 0) {
-		?>
-			<p class="screenshot"><strong>Screenshot:</strong></p>
-			<!-- Display the page's Featured Image -->
-			<div class="post-thumbnail">
-				<?php echo $the_thumbnail; ?>
-			</div>
-		<?php
-		}
 		?>
 	</article><!-- #post-## -->
 
