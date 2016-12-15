@@ -32,13 +32,13 @@ $other_categories_array = get_categories( $args );
 $portfolio_page_id = get_page_by_path('portfolio') -> ID;
 $projects_page_id = get_page_by_path('portfolio/projects') -> ID;
 $args = array(
-	'post_type'        => 'page',
-	'post_parent'      => $portfolio_page_id,
-	'exclude'          => $projects_page_id,
-	'orderby'          => 'date',
-	'order'            => 'DESC',
-	'post_status'      => 'publish',
-	'posts_per_page'   => -1
+	'post_type' => 'page',
+	'post_parent' => $portfolio_page_id,
+	'exclude' => $projects_page_id,
+	'orderby' => 'date',
+	'order' => 'DESC',
+	'post_status' => 'publish',
+	'posts_per_page' => -1
 );
 $category_pages_array = get_posts( $args );
 /********************************************************************************/
@@ -59,12 +59,12 @@ for ($oneCategoryPage=0; $oneCategoryPage < count($category_pages_array); $oneCa
 
 // Get all the page ID's in the same categories as this page
 $args = array(
-	'category__in'         => $current_categories_ids_array,
-	'orderby'          => 'date',
-	'order'            => 'DESC',
-	'post__not_in'          => array($post -> ID),
-	'post_type'        => 'page',
-	'post_status'      => 'publish',
+	'category__in' => $current_categories_ids_array,
+	'orderby' => 'date',
+	'order' => 'DESC',
+	'post__not_in' => array($post -> ID),
+	'post_type' => 'page',
+	'post_status' => 'publish',
 	'fields' => 'ids'
 );
 $other_pages = new WP_Query( $args );
