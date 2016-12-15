@@ -144,12 +144,15 @@ div#living-streets-header h1 a {
 }
 /* END Living Streets header */
 
+.page-title {
+	margin-top:30px;
+}
 /* Remove space between project titles and categories */
-h2.project-title {
-	margin:0;
+.project-title {
+	margin-bottom:0;
 }
 h5.categories {
-	margin:5px 0 10px 0;
+	margin:5px 0 20px 0;
 }
 /* Reduce spacing below "Description" on project pages */
 div.entry-content p.description {

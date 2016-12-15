@@ -64,7 +64,16 @@ include $RelativeToRoot . 'visitor_tracker.php';
 			<img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_100px.png">
 		</div>
 		<div>
-			<h1><?php echo get_bloginfo('name'); ?></h1>
+			<h1>
+			<?php
+				// If this is page is within the portfolio, display that in the header
+				if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
+					echo 'Portfolio of Steven Greenwaters';
+				// Otherwise display company logo
+				} else {
+					echo get_bloginfo('name');
+				}
+			?>
 		</div>
 	</div>
 	<?php

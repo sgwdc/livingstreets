@@ -61,10 +61,9 @@ if ($post_status != "publish") {
 }
 ?>
 
-<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>
 <?php
 // Display the name of the current portfolio section
-echo '<h2>Category: ' . $page_name;
+echo '<h2 class="page-title">Category: ' . $page_name;
 
 // Link to the "Edit" page if the user has access
 edit_post_link(

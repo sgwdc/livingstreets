@@ -38,8 +38,7 @@ $category_page_ids_array = get_posts( $args );
 
 <?php get_header(); ?>
 
-<h2>Portfolio of Steven Greenwaters</h2>
-<h4>Please select a category:</h4>
+<h2 class="page-title">Please select a category:</h2>
 
 <?php
 	// Convert the list of pages to a comma separated string

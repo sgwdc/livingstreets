@@ -78,12 +78,11 @@ if ($post_status != "publish") {
 }
 ?>
 
-<h4><a href="/portfolio/">Portfolio of Steven Greenwaters</a></h4>
 <?php
 // Start the loop
 while ( have_posts() ) : the_post();
 
-	echo '<h2 class="project-title">Project: ';
+	echo '<h2 class="page-title project-title">Project: ';
 	// Display the page title
 	echo get_the_title();
 	// Link to the "Edit" page if the user has access
