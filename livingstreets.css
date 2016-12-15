@@ -180,3 +180,6 @@ div.section-divider {
 img.profile-button {
 	border:1px #000 solid;
 }
+span.non-bold {
+	font-weight: normal;
+}

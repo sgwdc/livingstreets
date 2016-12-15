@@ -103,8 +103,9 @@ while ( have_posts() ) : the_post();
 	} else {
 		echo 'Category: &nbsp;';
 	}
+	echo ' <span class="non-bold">';
 	showCategories($current_categories_array);
-	echo '</h5>';
+	echo '</span></h5>';
 
 	// Display the thumbnail image for the current portfolio project
 	echo '<div>' . get_the_post_thumbnail(null, 'thumbnail') . '</div>';
@@ -160,10 +161,10 @@ endwhile;
 	} else {
 		echo 'y';
 	}
-?>: &nbsp;
+?>: &nbsp;<span class="non-bold">(
 <?php
 showCategories($current_categories_array);
-echo '</h4>';
+echo ' )</span></h4>';
 
 // Convert the list of pages to a comma separated string
 $other_page_ids_csv = implode(',', $other_page_ids_array);
@@ -211,7 +212,6 @@ function showCategories($categories_array) {
 		$category_url = '/portfolio/' . $category_object -> slug;
 		$category_name = $category_object -> name;
 		echo '<a href="' . $category_url . '"';
-		echo ' style="font-weight:normal;"';
 		echo '>' . $category_name . '</a>';
 		$num_displayed++;
 	}
