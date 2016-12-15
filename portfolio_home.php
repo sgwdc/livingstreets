@@ -47,15 +47,14 @@ $category_page_ids_array = get_posts( $args );
 	echo do_shortcode('[ess_grid alias="portfolio" posts="' . $category_page_ids_csv . '"]');
 ?>
 
-<h4><br>Or select a specific project:</h4>
+<div class="section-divider"></div>
+<h4>Or select a specific project:</h4>
 <?php
 	// Convert the list of pages to a comma separated string
 	$all_page_ids_csv = implode(',', $all_page_ids_array);
 	// Insert the "Essential Grid" plugin, and pass in the list of pages to display
 	echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $all_page_ids_csv . '"]');
 ?>
-
-<p>&nbsp;</p>
 
 <?php
 	include('portfolio_footer.php');

@@ -152,7 +152,8 @@ endwhile;
 
 // Display other pages in the same category/categories
 ?>
-<br>
+<div class="section-divider"></div>
+
 <h4>Other projects in the same categor<?php
 	if (count($current_categories_array) > 1) {
 		echo 'ies';
@@ -173,7 +174,9 @@ echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_page_ids_
 <?php
 // Display categories this page is _NOT_ in
 ?>
-<br>
+
+<div class="section-divider"></div>
+
 <h4>Other categories:</h4>
 <?php
 // Convert the list of pages to a comma separated string

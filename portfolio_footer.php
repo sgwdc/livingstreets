@@ -1,3 +1,5 @@
+<div class="section-divider"></div>
+
 <h4>Contact info:</h4>
 
 <p>Please contact me by phone at (202) 643-2866, or via <a href="/contact">online contact form</a>.</p>

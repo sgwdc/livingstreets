@@ -89,13 +89,13 @@ $project_page_ids_csv = implode(',', $project_page_ids_array);
 echo do_shortcode('[ess_grid alias="portfolio" posts="' . $project_page_ids_csv . '"]');
 ?>
 
-<br>
 <?php
 /********************************************************************************/
 /* DISPLAY OTHER PORTFOLIO SECTIONS												*/
 /********************************************************************************/
 ?>
-<h4><br>Other project categories:</h4>
+<div class="section-divider"></div>
+<h4>Other project categories:</h4>
 <?php
 // Convert the list of pages to a comma separated string
 $other_page_ids_csv = implode(',', $other_page_ids_array);
