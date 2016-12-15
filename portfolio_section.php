@@ -45,7 +45,7 @@ $args = array(
 	'post_parent'      => $portfolio_page_id,
 	'exclude'          => array($projects_page_id, $current_page_id),
 	'orderby'          => 'date',
-	'order'            => 'DESC',
+	'order'            => 'ASC',
 	'post_status'      => 'publish',
 	'posts_per_page'   => -1,
 	// Only return the page ID's

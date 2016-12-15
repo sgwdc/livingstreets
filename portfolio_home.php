@@ -18,6 +18,24 @@ $args = array(
 );
 $all_pages = new WP_Query( $args );
 $all_page_ids_array = $all_pages -> posts;
+
+/********************************************************************************/
+/* GET THE PAGES FOR _ALL_ THE PORTFOLIO SECTIONS (CHILD PAGES OF THE PAGE WITH	*/
+/* THE SLUG "PORTFOLIO")														*/
+/********************************************************************************/
+$portfolio_page_id = get_page_by_path('portfolio') -> ID;
+$projects_page_id = get_page_by_path('portfolio/projects') -> ID;
+$args = array(
+	'post_type'        => 'page',
+	'post_parent'      => $portfolio_page_id,
+	'exclude'          => $projects_page_id,
+	'orderby'          => 'date',
+	'order'            => 'ASC',
+	'post_status'      => 'publish',
+	'posts_per_page'   => -1,
+	'fields' => 'ids'
+);
+$category_page_ids_array = get_posts( $args );
 ?>
 
 <?php get_header(); ?>
@@ -34,8 +52,10 @@ $all_page_ids_array = $all_pages -> posts;
 <h4>Please select a category:</h4>
 
 <?php
+// Convert the list of pages to a comma separated string
+$category_page_ids_csv = implode(',', $category_page_ids_array);
 // Insert the "Essential Grid" plugin, and pass in the list of pages to display
-echo do_shortcode('[ess_grid alias="portfolio"]');
+echo do_shortcode('[ess_grid alias="portfolio" posts="' . $category_page_ids_csv . '"]');
 ?>
 
 <h4><br>Or select a specific project:</h4>
