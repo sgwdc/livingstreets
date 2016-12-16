@@ -171,8 +171,13 @@ article p.screenshot {
 	color:#f00;
 }
 div.section-divider {
-	margin-top:50px;
+	margin-top:60px;
 	border-bottom: 1px #fff dashed; /* or dotted */
+}
+div.thick-section-divider {
+	margin-top:80px;
+	margin-bottom:20px;
+	border-bottom: 10px #fff double; /* or dotted */
 }
 img.profile-button {
 	border:1px #000 solid;

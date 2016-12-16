@@ -136,7 +136,7 @@ endwhile;
 
 // Display other pages in the same category/categories
 ?>
-<div class="section-divider"></div>
+<div class="thick-section-divider"></div>
 
 <h4>Other projects in the same categor<?php
 	if (count($current_categories_array) > 1) {

@@ -93,7 +93,7 @@ echo do_shortcode('[ess_grid alias="portfolio" posts="' . $project_page_ids_csv 
 /* DISPLAY OTHER PORTFOLIO SECTIONS												*/
 /********************************************************************************/
 ?>
-<div class="section-divider"></div>
+<div class="thick-section-divider"></div>
 <h4>Other project categories:</h4>
 <?php
 // Convert the list of pages to a comma separated string

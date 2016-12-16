@@ -47,7 +47,7 @@ $category_page_ids_array = get_posts( $args );
 	echo do_shortcode('[ess_grid alias="portfolio" posts="' . $category_page_ids_csv . '"]');
 ?>
 
-<div class="section-divider"></div>
+<div class="thick-section-divider"></div>
 <h4>Or select a specific project:</h4>
 <?php
 	// Convert the list of pages to a comma separated string
