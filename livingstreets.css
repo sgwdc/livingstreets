@@ -176,6 +176,7 @@ div.section-divider {
 }
 img.profile-button {
 	border:1px #000 solid;
+	vertical-align:middle;
 }
 span.non-bold {
 	font-weight: normal;
