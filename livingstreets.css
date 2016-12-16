@@ -186,3 +186,16 @@ img.profile-button {
 span.non-bold {
 	font-weight: normal;
 }
+/* Spacing for images on pages */
+article.page img {
+	padding:4px 2px;
+}
+/* Rollover and onclick effects for linked images on pages */
+article.page a img:hover {
+	opacity: 0.5;
+	filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+article.page a img:active {
+	opacity: 0.2;
+	filter: alpha(opacity=20); /* For IE8 and earlier */
+}
