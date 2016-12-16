@@ -156,6 +156,9 @@ div#living-streets-header h1 a {
 h5.categories {
 	margin:5px 0 20px 0;
 }
+div.entry-content {
+	font-size:18px;
+}
 /* Reduce spacing below "Description" on project pages */
 div.entry-content p.description {
 	margin-bottom: 0;
