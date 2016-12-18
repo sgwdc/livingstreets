@@ -5,13 +5,17 @@ Template Name: Portfolio Homepage
 This template is used for the portfolio homepage, /portfolio/
 */
 
+$portfolio_page_id = get_page_by_path('portfolio') -> ID;
+$projects_page_id = get_page_by_path('portfolio/projects') -> ID;
+
 // Get all the page ID's for all projects
 $args = array(
 	'orderby' => 'date',
 	'order' => 'DESC',
-	'post__not_in' => array($post -> ID),
+	'post_parent' => $projects_page_id,
 	'post_type' => 'page',
 	'post_status' => 'publish',
+	'posts_per_page' => -1,
 	'fields' => 'ids'
 );
 $all_pages = new WP_Query( $args );
@@ -21,8 +25,6 @@ $all_page_ids_array = $all_pages -> posts;
 /* GET THE PAGES FOR _ALL_ THE PORTFOLIO SECTIONS (CHILD PAGES OF THE PAGE WITH	*/
 /* THE SLUG "PORTFOLIO")														*/
 /********************************************************************************/
-$portfolio_page_id = get_page_by_path('portfolio') -> ID;
-$projects_page_id = get_page_by_path('portfolio/projects') -> ID;
 $args = array(
 	'post_type' => 'page',
 	'post_parent' => $portfolio_page_id,
