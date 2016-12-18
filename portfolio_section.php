@@ -81,7 +81,7 @@ echo '<div>' . get_the_post_thumbnail(null, 'thumbnail') . '</div>';
 /********************************************************************************/
 /* DISPLAY PAGES IN THE CATEGORY ASSOCIATED WITH THE CURRENT PORTFOLIO SECTION	*/
 /********************************************************************************/
-echo '<h2><br>Please select a project:</h2>';
+echo '<h2><br>Projects:</h2>';
 // Convert the list of pages to a comma separated string
 $project_page_ids_csv = implode(',', $project_page_ids_array);
 // Insert the "Essential Grid" plugin, and pass in the list of pages to display
@@ -94,7 +94,7 @@ echo do_shortcode('[ess_grid alias="portfolio" posts="' . $project_page_ids_csv 
 /********************************************************************************/
 ?>
 <div class="thick-section-divider"></div>
-<h4>Or select a different project category:</h4>
+<h3>Switch to a different category:</h3>
 <?php
 // Convert the list of pages to a comma separated string
 $other_page_ids_csv = implode(',', $other_page_ids_array);

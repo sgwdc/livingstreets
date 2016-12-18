@@ -38,7 +38,7 @@ $all_page_ids_array = get_posts( $args );
 
 <?php get_header(); ?>
 
-<h2 class="page-title">Please select a category:</h2>
+<h2 class="page-title">Categories:</h2>
 
 <?php
 	// Convert the list of pages to a comma separated string
@@ -48,7 +48,7 @@ $all_page_ids_array = get_posts( $args );
 ?>
 
 <div class="thick-section-divider"></div>
-<h4>Or select an individual project:</h4>
+<h3>Individual projects:</h3>
 <?php
 	// Convert the list of pages to a comma separated string
 	$all_page_ids_csv = implode(',', $all_page_ids_array);
