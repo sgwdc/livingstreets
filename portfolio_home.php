@@ -5,37 +5,35 @@ Template Name: Portfolio Homepage
 This template is used for the portfolio homepage, /portfolio/
 */
 
+// Get page ID's for the pages /portfolio/ and /portfolio/projects/
 $portfolio_page_id = get_page_by_path('portfolio') -> ID;
 $projects_page_id = get_page_by_path('portfolio/projects') -> ID;
 
-// Get all the page ID's for all projects
+// Get the page ID's for the portfolio sections (child pages of /portfolio/)
 $args = array(
-	'orderby' => 'date',
-	'order' => 'DESC',
-	'post_parent' => $projects_page_id,
 	'post_type' => 'page',
 	'post_status' => 'publish',
-	'posts_per_page' => -1,
-	'fields' => 'ids'
-);
-$all_pages = new WP_Query( $args );
-$all_page_ids_array = $all_pages -> posts;
-
-/********************************************************************************/
-/* GET THE PAGES FOR _ALL_ THE PORTFOLIO SECTIONS (CHILD PAGES OF THE PAGE WITH	*/
-/* THE SLUG "PORTFOLIO")														*/
-/********************************************************************************/
-$args = array(
-	'post_type' => 'page',
 	'post_parent' => $portfolio_page_id,
+	// Omit the special-purpose /portfolio/projects/ placeholder page
 	'exclude' => $projects_page_id,
 	'orderby' => 'date',
 	'order' => 'ASC',
-	'post_status' => 'publish',
 	'posts_per_page' => -1,
 	'fields' => 'ids'
 );
 $category_page_ids_array = get_posts( $args );
+
+// Get the page ID's for _ALL_ individual projects (child pages of /portfolio/projects/)
+$args = array(
+	'post_type' => 'page',
+	'post_status' => 'publish',
+	'post_parent' => $projects_page_id,
+	'orderby' => 'date',
+	'order' => 'DESC',
+	'posts_per_page' => -1,
+	'fields' => 'ids'
+);
+$all_page_ids_array = get_posts( $args );
 ?>
 
 <?php get_header(); ?>
