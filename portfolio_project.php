@@ -176,7 +176,7 @@ echo do_shortcode('[ess_grid alias="portfolio" posts="' . $other_category_page_i
 
 <br>
 
-<p><a href="/portfolio/">Return to portfolio homepage</a></p>
+<p><a href="/portfolio/">Go back to portfolio homepage</a></p>
 
 <p>&nbsp;</p>
 
