@@ -105,9 +105,6 @@ while ( have_posts() ) : the_post();
 	echo ' <span class="non-bold">';
 	showCategories($current_categories_array);
 	echo '</span></h5>';
-
-	// Display the thumbnail image for the current portfolio project
-	echo '<div>' . get_the_post_thumbnail(null, 'thumbnail') . '</div>';
 	?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -118,7 +115,6 @@ while ( have_posts() ) : the_post();
 		?>
 			<?php /* Display the page content */ ?>
 			<div class="entry-content">
-				<br>
 				<p class="description"><strong>Description:</strong></p>
 				<?php
 				// Don't use get_the_content() to display the project description because it doesn't pass through the "the_content" filter
