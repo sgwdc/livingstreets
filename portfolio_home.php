@@ -48,7 +48,7 @@ $all_page_ids_array = get_posts( $args );
 ?>
 
 <div class="thick-section-divider"></div>
-<h3>Individual projects:</h3>
+<h3>Individual Projects:</h3>
 <?php
 	// Convert the list of pages to a comma separated string
 	$all_page_ids_csv = implode(',', $all_page_ids_array);
