@@ -82,7 +82,7 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 	?>
 	<div id="living-streets-header" class="clearfix">
 		<div>
-			<img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_100px.png" width="100" height="100">
+			<img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_129px.png" width="129" height="129">
 		</div>
 		<?php
 			// If this is page is within the portfolio, display the photo
