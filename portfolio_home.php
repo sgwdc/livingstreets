@@ -38,6 +38,8 @@ $all_page_ids_array = get_posts( $args );
 
 <?php get_header(); ?>
 
+<h2>Portfolio Homepage</h2>
+
 <h3>Please choose a category:</h3>
 
 <?php
