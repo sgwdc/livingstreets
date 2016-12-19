@@ -82,7 +82,7 @@ if ($post_status != "publish") {
 // Start the loop
 while ( have_posts() ) : the_post();
 
-	echo '<h2 class="page-title project-title">Project: ';
+	echo '<h2 class="project-title">Project: ';
 	// Display the page title
 	echo get_the_title();
 	// Link to the "Edit" page if the user has access
