@@ -85,13 +85,14 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 			<h1>
 			<?php
 				// If this is page is within the portfolio, display that in the header
-				if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
+				if ($isPortfolio) {
 					echo 'Portfolio of Steven Greenwaters';
 				// Otherwise display company logo
 				} else {
 					echo get_bloginfo('name');
 				}
 			?>
+			</h1>
 		</div>
 	</div>
 	<?php
