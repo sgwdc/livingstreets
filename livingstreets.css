@@ -79,15 +79,10 @@ td {
 td:nth-of-type(1) {
     padding-right:5px;
 }
-/* Make screenshot images responsive (Make this more specific and less global later) -10/26/2016 */
-img {
-	/* Doesn't seem to be necessary
-    vertical-align: middle;
-    */
-    /* Also no longer necessary, and causes problems
+/* Make screenshot images responsive */
+div.entry-content img {
     height: auto;
     max-width: 100%;
-    */
 }
 td {
 	width: 50%;
