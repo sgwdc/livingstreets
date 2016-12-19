@@ -1,5 +1,5 @@
-<div class="section-divider"></div>
-
+<br>
+<br>
 <h4>Contact me: <span class="non-bold">By phone at (202) 643-2866, or via <a href="/contact/">online contact form</a>.</span></h4>
 
 <h4>See my LinkedIn and GitHub profiles:

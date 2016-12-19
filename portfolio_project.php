@@ -82,6 +82,8 @@ echo '<h5 class="breadcrumbs"><a href="/portfolio/">Portfolio Homepage</a> &nbsp
 showCategories($current_categories_array);
 echo '</h5>';
 
+echo '<div id="body-content">';
+
 // Start the loop
 while ( have_posts() ) : the_post();
 	echo '<h2 class="project-title">Project: ';
@@ -122,10 +124,11 @@ while ( have_posts() ) : the_post();
 // End of the loop
 endwhile;
 
+echo '</div>';
+
 // Display other pages in the same category/categories
 ?>
-<div class="thick-section-divider"></div>
-
+<br>
 <h4>Additional projects in the same categor<?php
 	if (count($current_categories_array) > 1) {
 		echo 'ies';
@@ -147,8 +150,7 @@ echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_page_ids_
 // Display categories this page is _NOT_ in
 ?>
 
-<div class="section-divider"></div>
-
+<br>
 <h4>Other categories:</h4>
 <?php
 // Convert the list of pages to a comma separated string

@@ -63,6 +63,8 @@ if ($post_status != "publish") {
 // Breadcrumbs
 echo '<h5 class="breadcrumbs"><a href="/portfolio/">Portfolio Homepage</a></h5>';
 
+echo '<div id="body-content">';
+
 // Display the name of the current portfolio section
 echo '<h2 class="category-title">Category: ' . $page_name;
 
@@ -90,13 +92,15 @@ $project_page_ids_csv = implode(',', $project_page_ids_array);
 // Insert the "Essential Grid" plugin, and pass in the list of pages to display
 echo do_shortcode('[ess_grid alias="portfolio" posts="' . $project_page_ids_csv . '"]');
 ?>
+<br><br>
+</div>
 
 <?php
 /********************************************************************************/
 /* DISPLAY OTHER PORTFOLIO SECTIONS												*/
 /********************************************************************************/
 ?>
-<div class="thick-section-divider"></div>
+<br>
 <h3>Switch to a different category:</h3>
 <?php
 // Convert the list of pages to a comma separated string

@@ -38,6 +38,8 @@ $all_page_ids_array = get_posts( $args );
 
 <?php get_header(); ?>
 
+<div id="body-content">
+
 <h2>Portfolio Homepage</h2>
 
 <h3>Please choose a category:</h3>
@@ -48,8 +50,10 @@ $all_page_ids_array = get_posts( $args );
 	// Insert the "Essential Grid" plugin, and pass in the list of pages to display
 	echo do_shortcode('[ess_grid alias="portfolio" posts="' . $category_page_ids_csv . '"]');
 ?>
+<br><br>
+</div>
 
-<div class="thick-section-divider"></div>
+<br>
 <h3>Individual Projects:</h3>
 <?php
 	// Convert the list of pages to a comma separated string
