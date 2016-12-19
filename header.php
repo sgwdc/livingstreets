@@ -81,18 +81,26 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 		<div>
 			<img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_100px.png" width="100" height="100">
 		</div>
+		<?php
+			// If this is page is within the portfolio, display the photo
+			if ($isPortfolio) {
+		?>
+			<div id="photo">
+				<img src="<?php bloginfo('template_directory'); ?>/images/654A1000-22_Wedding_Mask_135px.png" width="135" height="135">
+			</div>
+		<?php
+			}
+		?>
 		<div>
-			<h1>
 			<?php
 				// If this is page is within the portfolio, display that in the header
 				if ($isPortfolio) {
-					echo 'Portfolio of Steven Greenwaters';
+					echo '<h1 id="portfolio">Portfolio of Steven Greenwaters</h1>';
 				// Otherwise display company logo
 				} else {
-					echo get_bloginfo('name');
+					echo '<h1 id="company">' . get_bloginfo('name') . '</h1>';
 				}
 			?>
-			</h1>
 		</div>
 	</div>
 	<?php
