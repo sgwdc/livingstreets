@@ -76,12 +76,6 @@ td {
     vertical-align: top;
 }
 
-/* Make screenshot images responsive */
-div.entry-content img {
-    height: auto;
-    max-width: 100%;
-}
-
 span.edit-link {
 	font-weight:normal;
 	font-size:12px;
@@ -155,10 +149,23 @@ div#living-streets-header h1 {
 	margin-bottom:0;
 	padding-bottom:15px;
 }
+
+div.entry-content {
+	font-size:18px;
+}
+/* Make screenshot images responsive */
+div.entry-content img {
+    height: auto;
+    max-width: 100%;
+}
+
 /* Reduce spacing below "Description" on project pages */
 div.entry-content p.description {
 	margin-bottom: 0;
 	margin-top:0;
+}
+div.entry-content p:nth-of-type(2) {
+	margin-top: 5px;
 }
 div#body-content {
 	margin-left:-8px;
@@ -171,9 +178,6 @@ div#body-content {
 	margin-top:20px;
 	border-top: 1px #999 solid;
 	border-bottom: 1px #999 solid;
-}
-div.entry-content p:nth-of-type(2) {
-	margin-top: 5px;
 }
 /* Reduce spacing below "Description" on project pages */
 article p.screenshot {
