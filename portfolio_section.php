@@ -59,11 +59,12 @@ $post_status = get_post_status();
 if ($post_status != "publish") {
 	echo '<h1 class="admin-notice">This Page Will Not Be Displayed Publicly Because Post Status = ' . $post_status . '</h1>';
 }
-?>
 
-<?php
+// Breadcrumbs
+echo '<h5 class="breadcrumbs"><a href="/portfolio/">Portfolio Homepage</a></h5>';
+
 // Display the name of the current portfolio section
-echo '<h2>Category: ' . $page_name;
+echo '<h2 class="category-title">Category: ' . $page_name;
 
 // Link to the "Edit" page if the user has access
 edit_post_link(

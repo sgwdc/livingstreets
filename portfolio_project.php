@@ -76,12 +76,14 @@ $post_status = get_post_status();
 if ($post_status != "publish") {
 	echo '<h1 class="admin-notice">This Page Will Not Be Displayed Publicly Because Post Status = ' . $post_status . '</h1>';
 }
-?>
 
-<?php
+// Breadcrumbs
+echo '<h5 class="breadcrumbs"><a href="/portfolio/">Portfolio Homepage</a> &nbsp; &gt; &nbsp; ';
+showCategories($current_categories_array);
+echo '</h5>';
+
 // Start the loop
 while ( have_posts() ) : the_post();
-
 	echo '<h2 class="project-title">Project: ';
 	// Display the page title
 	echo get_the_title();
@@ -95,16 +97,6 @@ while ( have_posts() ) : the_post();
 		' ]</span>'
 	);
 	echo '</h2>';
-
-	echo '<h5 class="categories">';
-	if (count($current_categories_array) > 1) {
-		echo 'Categories: &nbsp;';
-	} else {
-		echo 'Category: &nbsp;';
-	}
-	echo ' <span class="non-bold">';
-	showCategories($current_categories_array);
-	echo '</span></h5>';
 	?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

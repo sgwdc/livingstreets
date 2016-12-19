@@ -164,12 +164,13 @@ div#living-streets-header h1#portfolio {
 }
 /* END Living Streets header */
 
-/* Remove space between project titles and categories */
-.project-title {
+/* Remove space between project titles and breadcrumbs */
+.breadcrumbs {
 	margin-bottom:0;
+	font-weight: normal;
 }
-h5.categories {
-	margin:5px 0 20px 0;
+.project-title, .category-title {
+	margin-top:5px;
 }
 div.entry-content {
 	font-size:18px;
