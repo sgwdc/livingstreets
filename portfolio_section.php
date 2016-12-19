@@ -75,13 +75,15 @@ edit_post_link(
 	' ]</span>'
 );
 echo '</h2>';
+/* Omit for now to declutter until deciding whether to use CSS to overlay category name on the image
 // Display the thumbnail image for the current portfolio section
-echo '<div>' . get_the_post_thumbnail(null, 'thumbnail') . '</div>';
+echo '<div>' . get_the_post_thumbnail(null, 'thumbnail') . '</div><br>';
+*/
 
 /********************************************************************************/
 /* DISPLAY PAGES IN THE CATEGORY ASSOCIATED WITH THE CURRENT PORTFOLIO SECTION	*/
 /********************************************************************************/
-echo '<h2><br>Projects:</h2>';
+echo '<h2>Projects:</h2>';
 // Convert the list of pages to a comma separated string
 $project_page_ids_csv = implode(',', $project_page_ids_array);
 // Insert the "Essential Grid" plugin, and pass in the list of pages to display
