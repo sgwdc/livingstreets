@@ -126,7 +126,7 @@ endwhile;
 ?>
 <div class="thick-section-divider"></div>
 
-<h4>Other projects in the same categor<?php
+<h4>Additional projects in the same categor<?php
 	if (count($current_categories_array) > 1) {
 		echo 'ies';
 	} else {
