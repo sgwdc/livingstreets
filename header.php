@@ -1,4 +1,7 @@
 <?php
+// Set a version number to ensure any obsolete CSS and JS files are not cached
+$version = 1;
+
 $RelativeToRoot = "";
 include $RelativeToRoot . 'visitor_tracker.php';
 
@@ -29,7 +32,7 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 	?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/livingstreets.css">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/livingstreets.css?ver=' . $version; ?>">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
 	<?php
