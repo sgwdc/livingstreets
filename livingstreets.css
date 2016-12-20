@@ -189,6 +189,8 @@ article p.screenshot {
 img.profile-button {
 	border:1px #000 solid;
 	vertical-align:middle;
+	margin-bottom:5px;
+	margin-top:5px;
 }
 span.non-bold {
 	font-weight: normal;
