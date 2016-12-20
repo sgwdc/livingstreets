@@ -53,7 +53,6 @@ $all_page_ids_array = get_posts( $args );
 <br><br>
 </div>
 
-<br>
 <h3>Individual Projects:</h3>
 <?php
 	// Convert the list of pages to a comma separated string

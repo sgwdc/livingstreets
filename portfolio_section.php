@@ -100,7 +100,6 @@ echo do_shortcode('[ess_grid alias="portfolio" posts="' . $project_page_ids_csv 
 /* DISPLAY OTHER PORTFOLIO SECTIONS												*/
 /********************************************************************************/
 ?>
-<br>
 <h3>Switch to a different category:</h3>
 <?php
 // Convert the list of pages to a comma separated string
