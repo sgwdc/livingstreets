@@ -128,16 +128,16 @@ echo '</div>';
 
 // Display other pages in the same category/categories
 ?>
-<h4>Additional projects in the same categor<?php
+<h3>Additional projects in the same categor<?php
 	if (count($current_categories_array) > 1) {
 		echo 'ies';
 	} else {
 		echo 'y';
 	}
-?>: &nbsp;<span class="non-bold">(
+?>: &nbsp;<span class="non-bold" style="font-size:14px;">(
 <?php
 showCategories($current_categories_array);
-echo ' )</span></h4>';
+echo ' )</span></h3>';
 
 // Convert the list of pages to a comma separated string
 $other_page_ids_csv = implode(',', $other_page_ids_array);
