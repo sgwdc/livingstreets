@@ -90,7 +90,7 @@ echo '<h3>Please choose a project:</h3>';
 // Convert the list of pages to a comma separated string
 $project_page_ids_csv = implode(',', $project_page_ids_array);
 // Insert the "Essential Grid" plugin, and pass in the list of pages to display
-echo do_shortcode('[ess_grid alias="portfolio" posts="' . $project_page_ids_csv . '"]');
+echo do_shortcode('[ess_grid alias="portfolio_category" posts="' . $project_page_ids_csv . '"]');
 ?>
 <br><br>
 </div>

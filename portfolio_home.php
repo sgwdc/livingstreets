@@ -48,7 +48,7 @@ $all_page_ids_array = get_posts( $args );
 	// Convert the list of pages to a comma separated string
 	$category_page_ids_csv = implode(',', $category_page_ids_array);
 	// Insert the "Essential Grid" plugin, and pass in the list of pages to display
-	echo do_shortcode('[ess_grid alias="portfolio" posts="' . $category_page_ids_csv . '"]');
+	echo do_shortcode('[ess_grid alias="portfolio_home" posts="' . $category_page_ids_csv . '"]');
 ?>
 <br><br>
 </div>
