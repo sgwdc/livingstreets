@@ -88,8 +88,9 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 			// If this is page is within the portfolio, display the photo
 			if ($isPortfolio) {
 		?>
+
 			<div id="photo">
-				<img src="<?php bloginfo('template_directory'); ?>/images/654A1000-22_Wedding_Mask_135px.png" width="135" height="135">
+				<img src="<?php bloginfo('template_directory'); ?>/images/654A1000-22_v4_gradient-background-252549_133px.jpg" width="187" height="133">
 			</div>
 		<?php
 			}

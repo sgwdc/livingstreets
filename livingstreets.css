@@ -98,7 +98,7 @@ div#living-streets-header div#photo {
 	float:right;
 }
 div#living-streets-header div#photo img {
-	border:0;
+	border:1px #999 solid;
 }
 div#living-streets-header img {
 	border:3px #fff solid;
@@ -130,7 +130,7 @@ div#living-streets-header h1 {
 		padding-top:28px;
 	}
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 832px) { /* Increase if company logo or photo increases */
 	/* Wrap "Portfolio of Steven Greenwaters" if necessary */
 	div#living-streets-header h1#portfolio {
 		width: 192px;
