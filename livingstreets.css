@@ -98,7 +98,7 @@ div#living-streets-header div#photo {
 	float:right;
 }
 div#living-streets-header div#photo img {
-	border:1px #999 solid;
+	border:1px #999 solid; /* NOTE: This must match the value in header.php */
 }
 div#living-streets-header img {
 	border:3px #fff solid;
