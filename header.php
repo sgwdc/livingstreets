@@ -58,6 +58,7 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 					})
 					.on('mouseleave', function() {
 						jQuery( this ).find( 'img' ).css("border-color", "#fff");
+						jQuery( this ).find( 'div#photo img' ).css("border-color", "#999");
 					})
 					.on('mousedown', function() {
 						jQuery( this ).find( 'img' ).css("border-color", "#f00");
