@@ -16,7 +16,7 @@ $args = array(
 	'post_parent' => $portfolio_page_id,
 	// Omit the special-purpose /portfolio/projects/ placeholder page
 	'exclude' => $projects_page_id,
-	'orderby' => 'date',
+	'orderby' => 'menu_order',
 	'order' => 'ASC',
 	'posts_per_page' => -1,
 	'fields' => 'ids'
@@ -28,8 +28,8 @@ $args = array(
 	'post_type' => 'page',
 	'post_status' => 'publish',
 	'post_parent' => $projects_page_id,
-	'orderby' => 'date',
-	'order' => 'DESC',
+	'orderby' => 'menu_order',
+	'order' => 'ASC',
 	'posts_per_page' => -1,
 	'fields' => 'ids'
 );

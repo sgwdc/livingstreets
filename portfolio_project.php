@@ -60,8 +60,8 @@ for ($oneCategoryPage=0; $oneCategoryPage < count($category_pages_array); $oneCa
 // Get all the page ID's in the same categories as this page
 $args = array(
 	'category__in' => $current_categories_ids_array,
-	'orderby' => 'date',
-	'order' => 'DESC',
+	'orderby' => 'menu_order',
+	'order' => 'ASC',
 	'post__not_in' => array($post -> ID),
 	'post_type' => 'page',
 	'post_status' => 'publish',
