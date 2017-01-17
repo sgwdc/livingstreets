@@ -1,6 +1,6 @@
 <?php
 // Set a version number to ensure any obsolete CSS and JS files are not cached
-$version = 1;
+$version = 3;
 
 $RelativeToRoot = "";
 include $RelativeToRoot . 'visitor_tracker.php';
