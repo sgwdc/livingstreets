@@ -8,6 +8,8 @@ This template is used for pages under the /portfolio/projects/ page, which displ
 // Get the categories that this page _IS_ in
 global $post;
 $args = array(
+	'orderby' => 'description',
+	'order' => 'ASC',
 	'fields' => 'all'
 );
 $current_categories_array = wp_get_post_categories( $post->ID, $args );
