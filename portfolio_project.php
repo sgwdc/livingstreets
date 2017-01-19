@@ -37,8 +37,8 @@ $args = array(
 	'post_type' => 'page',
 	'post_parent' => $portfolio_page_id,
 	'exclude' => $projects_page_id,
-	'orderby' => 'date',
-	'order' => 'DESC',
+	'orderby' => 'menu_order',
+	'order' => 'ASC',
 	'post_status' => 'publish',
 	'posts_per_page' => -1
 );
