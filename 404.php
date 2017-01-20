@@ -1,12 +1,31 @@
 <?php
+// Define the redirects from old to new addresses
+$redirects_array = array(
+	array('/portfolio/interactive-maps/', '/portfolio/interactive-mapping/'),
+	array('/portfolio/javascript-jquery/', '/portfolio/front-end/'),
+	array('/portfolio/php-sql/', '/portfolio/back-end/')
+);
+
+$request_uri = $_SERVER['REQUEST_URI'];
+
+// Iterate through all the redirects
+for ($one_redirect=0; $one_redirect < count($redirects_array); $one_redirect++) {
+	// If this redirect matches the current page that generated a 404 error (use substr() since we don't know if trailing slash will be present)
+	if (substr($redirects_array[$one_redirect][0], 0, strlen($request_uri)) == $request_uri) {
+		// Redirect user to the new URL
+		header("Location: " . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $redirects_array[$one_redirect][1]);
+		exit;
+	}
+}
+
 // Workaround for Adobe Acrobat mysteriously converting a simple "-" (dash) into "%E2%80%90" (Use substr() since we don't know if there will be a trailing slash)
-if (substr($_SERVER['REQUEST_URI'], 0, 33) == "/portfolio/gis%E2%80%90geospatial") {
+if (substr($request_uri, 0, 33) == "/portfolio/gis%E2%80%90geospatial") {
 	// Redirect to the correct URL
 	header("Location: " . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/portfolio/gis-geospatial/');
 	exit;
 
 // If the user was trying to access a page within my online portfolio
-} else if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
+} else if (substr($request_uri, 0, 10) == "/portfolio") {
 	// Redirect to the portfolio homepage
 	header("Location: " . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
 	exit;

@@ -26,7 +26,7 @@ $args = array(
 );
 $project_page_ids_array = get_posts( $args );
 
-// If no pages are found for this category (which should hopefully never happen)
+// If no pages are found for this category (which should only happen if the page category slug doesn't match the category page slug)
 if (!count($project_page_ids_array)) {
 	// Redirect to the portfolio homepage
 	header("Location: " . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
