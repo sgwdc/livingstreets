@@ -160,8 +160,6 @@ echo do_shortcode('[ess_grid alias="portfolio_home" posts="' . $other_category_p
 	include('portfolio_footer.php');
 ?>
 
-<br>
-
 <?php get_footer(); ?>
 
 <?php

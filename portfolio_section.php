@@ -107,6 +107,4 @@ echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_page_ids_
 	include('portfolio_footer.php');
 ?>
 
-<p>&nbsp;</p>
-
 <?php get_footer(); ?>

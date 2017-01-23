@@ -10,3 +10,5 @@
 		<a href="https://github.com/sgwdc" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/GitHub_button.png" class="profile-button" alt="View Steven Greenwaters' profile on GitHub"></a>
 	</li>
 </ul>
+<br>
+<br>
