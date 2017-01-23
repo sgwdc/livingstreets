@@ -13,7 +13,7 @@
 <br>
 <br>
 <?php
-	// Show the dropdown menu		
+	// Show the dropdown menu (Note this standard WordPress menu gets overridden by the Max Mega Menu plugin)
 	wp_nav_menu(
 		array(
 			'theme_location' => 'portfolio-menu'

@@ -112,8 +112,9 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 		// If this page is not the homepage (of the website or the portfolio), close the link
 		if (!$isHomepage) echo '</a>';
 
-		// If this page is within the portfolio section, show the WordPress menu
+		// If this page is within the portfolio section
 		if ($isPortfolio) {
+			// Show the dropdown menu (Note this standard WordPress menu gets overridden by the Max Mega Menu plugin)
 			wp_nav_menu(
 				array(
 					'theme_location' => 'portfolio-menu'
