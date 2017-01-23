@@ -79,11 +79,6 @@ if ($post_status != "publish") {
 	echo '<h1 class="admin-notice">This Page Will Not Be Displayed Publicly Because Post Status = ' . $post_status . '</h1>';
 }
 
-// Breadcrumbs
-echo '<h5 class="breadcrumbs"><a href="/portfolio/">Portfolio Homepage</a> &nbsp; &gt; &nbsp; ';
-showCategories($current_categories_array);
-echo '</h5>';
-
 echo '<div id="body-content">';
 
 // Start the loop
@@ -166,10 +161,6 @@ echo do_shortcode('[ess_grid alias="portfolio_home" posts="' . $other_category_p
 ?>
 
 <br>
-
-<p><a href="/portfolio/">Go back to portfolio homepage</a></p>
-
-<p>&nbsp;</p>
 
 <?php get_footer(); ?>
 

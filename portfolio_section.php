@@ -60,9 +60,6 @@ if ($post_status != "publish") {
 	echo '<h1 class="admin-notice">This Page Will Not Be Displayed Publicly Because Post Status = ' . $post_status . '</h1>';
 }
 
-// Breadcrumbs
-echo '<h5 class="breadcrumbs"><a href="/portfolio/">Portfolio Homepage</a></h5>';
-
 echo '<div id="body-content">';
 
 // Display the name of the current portfolio section
@@ -113,10 +110,6 @@ echo do_shortcode('[ess_grid alias="portfolio_small" posts="' . $other_page_ids_
 <?php
 	include('portfolio_footer.php');
 ?>
-
-<br>
-
-<p><a href="/portfolio/">Go back to portfolio homepage</a></p>
 
 <p>&nbsp;</p>
 
