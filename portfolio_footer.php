@@ -12,3 +12,11 @@
 </ul>
 <br>
 <br>
+<?php
+	// Show the dropdown menu		
+	wp_nav_menu(
+		array(
+			'theme_location' => 'portfolio-menu'
+		)
+	);
+?>
