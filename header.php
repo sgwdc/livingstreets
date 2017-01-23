@@ -75,10 +75,10 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 		include_once("analyticstracking.php");
 		// If this is a page within the portfolio, but not the homepage, link to the portfolio homepage
 		if ($isPortfolio && !$isHomepage) {
-			echo '<a href="/portfolio/">';
+			echo '<a href="/portfolio/" title="Homepage">';
 		// Otherwise if this is not a page within the portfolio, and not the homepage, link to the homepage
 		} else if (!$isPortfolio && !$isHomepage) {
-			echo '<a href="/">';
+			echo '<a href="/" title="Homepage">';
 		}
 	?>
 	<div id="living-streets-header" class="clearfix">
