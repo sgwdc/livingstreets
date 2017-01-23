@@ -19,4 +19,13 @@
 			'theme_location' => 'portfolio-menu'
 		)
 	);
+
+	// Add extra space to ensure dropdown menu will fit
+	echo '<p>&nbsp;</p>';
+	echo '<p>&nbsp;</p>';
+	echo '<p>&nbsp;</p>';
+	echo '<p>&nbsp;</p>';
+	echo '<p>&nbsp;</p>';
+	echo '<p>&nbsp;</p>';
+	echo '<p>&nbsp;</p>';
 ?>
