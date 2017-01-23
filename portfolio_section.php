@@ -62,8 +62,8 @@ if ($post_status != "publish") {
 
 echo '<div id="body-content">';
 
-// Display the name of the current portfolio section
-echo '<h2 class="category-title">Category: ' . $page_name;
+// Display the name of the current portfolio section, and its thumbnail
+echo '<h2 class="category-title">' . get_the_post_thumbnail(null, 'thumbnail'). ' &nbsp; Category: ' . $page_name;
 
 // Link to the "Edit" page if the user has access
 edit_post_link(
@@ -75,10 +75,6 @@ edit_post_link(
 	' ]</span>'
 );
 echo '</h2>';
-/* Omit for now to declutter until deciding whether to use CSS to overlay category name on the image
-// Display the thumbnail image for the current portfolio section
-echo '<div>' . get_the_post_thumbnail(null, 'thumbnail') . '</div><br>';
-*/
 
 /********************************************************************************/
 /* DISPLAY PAGES IN THE CATEGORY ASSOCIATED WITH THE CURRENT PORTFOLIO SECTION	*/

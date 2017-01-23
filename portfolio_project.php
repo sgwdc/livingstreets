@@ -83,9 +83,9 @@ echo '<div id="body-content">';
 
 // Start the loop
 while ( have_posts() ) : the_post();
-	echo '<h2 class="project-title">Project: ';
-	// Display the page title
-	echo get_the_title();
+	// Display the name of the current project, and its thumbnail
+	echo '<h2 class="project-title">' . get_the_post_thumbnail(null, 'thumbnail'). ' &nbsp; Project: ' . get_the_title();
+
 	// Link to the "Edit" page if the user has access
 	edit_post_link(
 		sprintf(

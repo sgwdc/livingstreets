@@ -150,6 +150,10 @@ div#living-streets-header h1 {
 	padding-bottom:15px;
 }
 
+.project-title img, .category-title img {
+	vertical-align: middle;
+}
+
 div.entry-content {
 	font-size:18px;
 }
