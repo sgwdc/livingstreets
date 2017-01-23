@@ -19,8 +19,18 @@ function remove_menus() {
 	remove_menu_page( 'edit.php' );
 	// Comments
 	remove_menu_page( 'edit-comments.php' );
-	// Essential Grid
+	// Essential Grid (Now using Essential Grid shortcode in pages instead)
 	remove_menu_page( 'edit.php?post_type=essential_grid' );
 }
 add_action( 'admin_menu', 'remove_menus' );
+
+// Add theme support for a menu
+function wpb_custom_new_menu() {
+  register_nav_menus(
+    array(
+      'portfolio-menu' => __( 'Portfolio Menu' )
+    )
+  );
+}
+add_action( 'init', 'wpb_custom_new_menu' );
 ?>

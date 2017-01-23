@@ -1,6 +1,6 @@
 <?php
 // Set a version number to ensure any obsolete CSS and JS files are not cached
-$version = 3;
+$version = 4;
 
 $RelativeToRoot = "";
 include $RelativeToRoot . 'visitor_tracker.php';
@@ -109,5 +109,15 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 		</div>
 	</div>
 	<?php
+		// If this page is not the homepage (of the website or the portfolio), close the link
 		if (!$isHomepage) echo '</a>';
+
+		// If this page is within the portfolio section, show the WordPress menu
+		if ($isPortfolio) {
+			wp_nav_menu(
+				array(
+					'theme_location' => 'portfolio-menu'
+				)
+			);
+		}
 	?>

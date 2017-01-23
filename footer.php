@@ -1,4 +1,16 @@
 	<?php
+		// Copied from header.php for consistency
+		if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") $isPortfolio = true;
+		else $isPortfolio = false;
+		// If this page is within the portfolio section, show the WordPress menu
+		if ($isPortfolio) {
+			wp_nav_menu(
+				array(
+					'theme_location' => 'portfolio-menu'
+				)
+			);
+		}
+
 		// Blank line
 		echo '<br>';
 
