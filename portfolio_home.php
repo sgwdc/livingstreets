@@ -40,8 +40,6 @@ $all_page_ids_array = get_posts( $args );
 
 <div id="body-content">
 
-<h2>Portfolio Homepage</h2>
-
 <h3>Please choose a category:</h3>
 
 <?php
