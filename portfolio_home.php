@@ -38,6 +38,23 @@ $all_page_ids_array = get_posts( $args );
 
 <?php get_header(); ?>
 
+<script>
+	// Fire when jQuery has finished loading
+	jQuery( document ).ready(function() {
+		// Event handlers to underline category name and "SHOW PROJECTS >" on mouseenter
+		jQuery('div.esg-entry-cover')
+			.on('mouseenter', function() {
+				
+				jQuery( this ).find('a.eg-georgebush-modified-element-0').css('text-decoration', 'underline');
+				jQuery( this ).find('a.eg-georgebush-modified-element-1').css('text-decoration', 'underline');
+			})
+			.on('mouseleave', function() {
+				jQuery( this ).find('a.eg-georgebush-modified-element-0').css('text-decoration', 'none');
+				jQuery( this ).find('a.eg-georgebush-modified-element-1').css('text-decoration', 'none');
+			})
+	});
+</script>
+
 <div id="body-content">
 
 <h3>Please choose a category:</h3>
