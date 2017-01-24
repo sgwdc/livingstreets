@@ -54,27 +54,7 @@ $args = array(
 $other_page_ids_array = get_posts( $args );
 
 get_header();
-?>
 
-<script>
-	// Fire when jQuery has finished loading
-	jQuery( document ).ready(function() {
-		// Event handlers to underline text in "Garfield" style Essential Grid covers
-		jQuery('li.eg-garfield-custom-wrapper')
-			.on('mouseenter', function() {
-				jQuery( this ).find('a.eg-garfield-custom-element-0').css('text-decoration', 'underline');
-				jQuery( this ).find('a.eg-garfield-custom-element-2').css('text-decoration', 'underline');
-				jQuery( this ).find('a.eg-garfield-custom-element-6').css('text-decoration', 'underline');
-			})
-			.on('mouseleave', function() {
-				jQuery( this ).find('a.eg-garfield-custom-element-0').css('text-decoration', 'none');
-				jQuery( this ).find('a.eg-garfield-custom-element-2').css('text-decoration', 'none');
-				jQuery( this ).find('a.eg-garfield-custom-element-6').css('text-decoration', 'none');
-			})
-	});
-</script>
-
-<?php
 $post_status = get_post_status();
 if ($post_status != "publish") {
 	echo '<h1 class="admin-notice">This Page Will Not Be Displayed Publicly Because Post Status = ' . $post_status . '</h1>';
