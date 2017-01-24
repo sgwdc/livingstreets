@@ -8,6 +8,7 @@ This template is used for the portfolio homepage, /portfolio/
 // Get page ID's for the pages /portfolio/ and /portfolio/projects/
 $portfolio_page_id = get_page_by_path('portfolio') -> ID;
 $projects_page_id = get_page_by_path('portfolio/projects') -> ID;
+$contact_page_id = get_page_by_path('portfolio/contact') -> ID;
 
 // Get the page ID's for the portfolio sections (child pages of /portfolio/)
 $args = array(
@@ -15,7 +16,7 @@ $args = array(
 	'post_status' => 'publish',
 	'post_parent' => $portfolio_page_id,
 	// Omit the special-purpose /portfolio/projects/ placeholder page
-	'exclude' => $projects_page_id,
+	'exclude' => array($projects_page_id, $contact_page_id),
 	'orderby' => 'menu_order',
 	'order' => 'ASC',
 	'posts_per_page' => -1,

@@ -39,11 +39,12 @@ if (!count($project_page_ids_array)) {
 /********************************************************************************/
 $portfolio_page_id = get_page_by_path('portfolio') -> ID;
 $projects_page_id = get_page_by_path('portfolio/projects') -> ID;
+$contact_page_id = get_page_by_path('portfolio/contact') -> ID;
 $current_page_id = $post -> ID;
 $args = array(
 	'post_type'        => 'page',
 	'post_parent'      => $portfolio_page_id,
-	'exclude'          => array($projects_page_id, $current_page_id),
+	'exclude'          => array($projects_page_id, $contact_page_id, $current_page_id),
 	'orderby'          => 'menu_order',
 	'order'            => 'ASC',
 	'post_status'      => 'publish',
