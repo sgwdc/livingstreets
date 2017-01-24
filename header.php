@@ -1,6 +1,6 @@
 <?php
 // Set a version number to ensure any obsolete CSS and JS files are not cached
-$version = 4;
+$version = 5;
 
 $RelativeToRoot = "";
 include $RelativeToRoot . 'visitor_tracker.php';
@@ -57,8 +57,8 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 						jQuery( this ).find( 'img' ).css("border-color", "#88cbfa");
 					})
 					.on('mouseleave', function() {
-						jQuery( this ).find( 'img' ).css("border-color", "initial");
-						jQuery( this ).find( 'div#photo img' ).css("border-color", "#999");
+						jQuery( this ).find( 'div#logo img' ).css("border-color", "#005799"); // This must match the value in livingstreets.css
+						jQuery( this ).find( 'div#photo img' ).css("border-color", "#999"); // This must match the value in livingstreets.css
 					})
 					.on('mousedown', function() {
 						jQuery( this ).find( 'img' ).css("border-color", "#f00");
@@ -104,14 +104,13 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 		}
 	?>
 	<div id="living-streets-header" class="clearfix">
-		<div>
-			<img src="<?php bloginfo('template_directory'); ?>/images/livingstreets_logo_129px.png" width="129" height="129">
+		<div id="logo">
+			<img src="<?php bloginfo('template_directory'); ?>/images/Washington_DC_Metro_Map_(To_Scale)_v4_Bitmap_133px.png" width="133" height="133">
 		</div>
 		<?php
 			// If this is page is within the portfolio, display the photo
 			if ($isPortfolio) {
 		?>
-
 			<div id="photo">
 				<img src="<?php bloginfo('template_directory'); ?>/images/654A1000-22_v4_gradient-background-252549_133px.jpg" width="187" height="133">
 			</div>

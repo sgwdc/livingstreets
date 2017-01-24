@@ -5,7 +5,7 @@ Template Name: Portfolio Homepage
 This template is used for the portfolio homepage, /portfolio/
 */
 
-// Get page ID's for the pages /portfolio/ and /portfolio/projects/
+// Get page ID's for the pages /portfolio/ and /portfolio/projects/ and /portfolio/contact/
 $portfolio_page_id = get_page_by_path('portfolio') -> ID;
 $projects_page_id = get_page_by_path('portfolio/projects') -> ID;
 $contact_page_id = get_page_by_path('portfolio/contact') -> ID;
