@@ -148,6 +148,7 @@ div#living-streets-header h1 {
 	margin-top:15px;
 	margin-bottom:0;
 	padding-bottom:15px;
+	color:#000;
 }
 
 .project-title img, .category-title img {
@@ -156,6 +157,10 @@ div#living-streets-header h1 {
 
 div.entry-content {
 	font-size:18px;
+	color:#000;
+}
+div.entry-content a {
+	color:#000;
 }
 /* Make screenshot images responsive */
 div.entry-content img {
@@ -176,12 +181,24 @@ div#body-content {
 	margin-right:-8px;
 	padding-left:20px;
 	padding-right:20px;
-	background-color:#006649;
+	/*
+	Dark blue used elsewhere: 005799
+	Green formerly used: 006649
+	Bright blue: 56a9e8
+	Solid yellow: fff200
+	Mid-grade yellow: e0dc89
+	Very light blue, looks good with blue used elsewhere: CCE9FF
+	*/
+	/* Cyan */
+	background-color:#99D3FF;
 	padding-bottom:10px;
 	margin-bottom:50px;
 	margin-top:20px;
 	border-top: 1px #999 solid;
 	border-bottom: 1px #999 solid;
+}
+div#body-content h3 {
+	color:#000;
 }
 /* Reduce spacing below "Description" on project pages */
 article p.screenshot {
