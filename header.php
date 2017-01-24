@@ -82,12 +82,10 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 			jQuery('li.eg-garfield-custom-wrapper')
 				.on('mouseenter', function() {
 					jQuery( this ).find('a.eg-garfield-custom-element-0').css('text-decoration', 'underline');
-					jQuery( this ).find('a.eg-garfield-custom-element-2').css('text-decoration', 'underline');
 					jQuery( this ).find('a.eg-garfield-custom-element-6').css('text-decoration', 'underline');
 				})
 				.on('mouseleave', function() {
 					jQuery( this ).find('a.eg-garfield-custom-element-0').css('text-decoration', 'none');
-					jQuery( this ).find('a.eg-garfield-custom-element-2').css('text-decoration', 'none');
 					jQuery( this ).find('a.eg-garfield-custom-element-6').css('text-decoration', 'none');
 				})
 		});
