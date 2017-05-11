@@ -8,6 +8,13 @@ $redirects_array = array(
 
 $request_uri = $_SERVER['REQUEST_URI'];
 
+// Workaround for Adobe Acrobat mysteriously converting a simple "-" (dash) into "%E2%80%90"
+if (strpos($request_uri, '%E2%80%90')) {
+	$corrected_uri = preg_replace('/(.*)%E2%80%90(.*)/', '$1-$2', $request_uri);
+	header("Location: " . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $corrected_uri);
+	exit;
+}
+
 // Iterate through all the redirects
 for ($one_redirect=0; $one_redirect < count($redirects_array); $one_redirect++) {
 	// If this redirect matches the current page that generated a 404 error (use substr() since we don't know if trailing slash will be present)
