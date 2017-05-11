@@ -25,14 +25,8 @@ for ($one_redirect=0; $one_redirect < count($redirects_array); $one_redirect++) 
 	}
 }
 
-// Workaround for Adobe Acrobat mysteriously converting a simple "-" (dash) into "%E2%80%90" (Use substr() since we don't know if there will be a trailing slash)
-if (substr($request_uri, 0, 33) == "/portfolio/gis%E2%80%90geospatial") {
-	// Redirect to the correct URL
-	header("Location: " . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/portfolio/gis-geospatial/');
-	exit;
-
 // If the user was trying to access a page within my online portfolio
-} else if (substr($request_uri, 0, 10) == "/portfolio") {
+if (substr($request_uri, 0, 10) == "/portfolio") {
 	// Redirect to the portfolio homepage
 	header("Location: " . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
 	exit;
