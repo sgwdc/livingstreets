@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+/* WordPress will automatic display this template (home.php) if "Your homepage displays" is set to "Your latest posts" in the WordPress admin under Settings > Reading.  I'm pretty sure this is the default setting, which makes it easier if we ever need to install this theme in a fresh WordPress installation.
+*/
+get_header();
+?>
 
 	<?php /* This entire block will be expanded into the margin so it runs across the entire screen */ ?>
 	<div id="fotoliacontainer">
