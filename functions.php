@@ -24,7 +24,7 @@ function remove_menus() {
 }
 add_action( 'admin_menu', 'remove_menus' );
 
-// Add theme support for a menu
+// Add theme support for a menu - not currently used, but visible at: http://livingstreets.com/wp-admin/nav-menus.php
 function wpb_custom_new_menu() {
   register_nav_menus(
     array(

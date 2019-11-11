@@ -4,21 +4,11 @@ $version = 5;
 
 $RelativeToRoot = "";
 include $RelativeToRoot . 'visitor_tracker.php';
-
-// If this IS a portfolio page
-if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
-	$isPortfolio = true;
-	// Save whether this is the top-level portfolio page
-	if ($_SERVER['REQUEST_URI'] == "/portfolio/") $isHomepage = true;
-	else $isHomepage = false;
-// Otherwise it's NOT a portfolio page
-} else {
-	$isPortfolio = false;
-	// Save whether this is the top-level page
-	if ($_SERVER['REQUEST_URI'] == "/") $isHomepage = true;
-	else $isHomepage = false;
-}
+// Save whether this is the top-level page
+if ($_SERVER['REQUEST_URI'] == "/") $isHomepage = true;
+else $isHomepage = false;
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,52 +32,8 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 	<script>
 		// Fire when jQuery has finished loading
 		jQuery( document ).ready(function() {
-			<?php
-			// If this is the homepage, disable the mouse pointer for the "Living Streets Consulting" header
-			if ($isHomepage) {
-			?>
-				jQuery( "div#living-streets-header h1" ).css('cursor', 'default');
-			<?php
-			// If this is any other page, use jQuery to give "Living Streets Consulting" and the company logo a consistent border on hover, click and normal
-			} else {
-			?>
-				// Define events for company name and logo
-				jQuery( "div#living-streets-header" )
-					.on('mouseenter mouseup', function() {
-						jQuery( this ).find( 'img' ).css("border-color", "#88cbfa");
-					})
-					.on('mouseleave', function() {
-						jQuery( this ).find( 'div#logo img' ).css("border-color", "#005799"); // This must match the value in livingstreets.css
-						jQuery( this ).find( 'div#photo img' ).css("border-color", "#999"); // This must match the value in livingstreets.css
-					})
-					.on('mousedown', function() {
-						jQuery( this ).find( 'img' ).css("border-color", "#f00");
-					})
-			<?php
-			}
-			?>
-
-			// Event handlers to underline text in modified "GeorgeBush" style Essential Grid skins
-			jQuery('div.esg-entry-cover')
-				.on('mouseenter', function() {
-					jQuery( this ).find('a.eg-georgebush-modified-element-0').css('text-decoration', 'underline');
-					jQuery( this ).find('a.eg-georgebush-modified-element-1').css('text-decoration', 'underline');
-				})
-				.on('mouseleave', function() {
-					jQuery( this ).find('a.eg-georgebush-modified-element-0').css('text-decoration', 'none');
-					jQuery( this ).find('a.eg-georgebush-modified-element-1').css('text-decoration', 'none');
-				})
-
-			// Event handlers to underline text in modified "Garfield" style Essential Grid skins
-			jQuery('li.eg-garfield-custom-wrapper')
-				.on('mouseenter', function() {
-					jQuery( this ).find('a.eg-garfield-custom-element-0').css('text-decoration', 'underline');
-					jQuery( this ).find('a.eg-garfield-custom-element-6').css('text-decoration', 'underline');
-				})
-				.on('mouseleave', function() {
-					jQuery( this ).find('a.eg-garfield-custom-element-0').css('text-decoration', 'none');
-					jQuery( this ).find('a.eg-garfield-custom-element-6').css('text-decoration', 'none');
-				})
+			// Disable the mouse pointer for the "Living Streets Consulting" header
+			jQuery( "div#living-streets-header h1" ).css('cursor', 'default');
 		});
 	</script>
 </head>
@@ -95,11 +41,7 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 	<?php
 		// Google Analytics tracking
 		include_once("analyticstracking.php");
-		// If this is a page within the portfolio, but not the homepage, link to the portfolio homepage
-		if ($isPortfolio && !$isHomepage) {
-			echo '<a href="/portfolio/" title="Homepage">';
-		// Otherwise if this is not a page within the portfolio, and not the homepage, link to the homepage
-		} else if (!$isPortfolio && !$isHomepage) {
+		if (!$isHomepage) {
 			echo '<a href="/" title="Homepage">';
 		}
 	?>
@@ -107,39 +49,13 @@ if (substr($_SERVER['REQUEST_URI'], 0, 10) == "/portfolio") {
 		<div id="logo">
 			<img src="<?php bloginfo('template_directory'); ?>/images/DCMetroDiagram_Simplified_WhiteOutline_cropped_166x133.png" width="166" height="133">
 		</div>
-		<?php
-			// If this is page is within the portfolio, display the photo
-			if ($isPortfolio) {
-		?>
-			<div id="photo">
-				<img src="<?php bloginfo('template_directory'); ?>/images/654A1000-22_v4_gradient-background-252549_133px.jpg" width="187" height="133">
-			</div>
-		<?php
-			}
-		?>
 		<div>
 			<?php
-				// If this is page is within the portfolio, display that in the header
-				if ($isPortfolio) {
-					echo '<h1 id="portfolio">Portfolio of Steven Greenwaters</h1>';
-				// Otherwise display company logo
-				} else {
-					echo '<h1 id="company">' . get_bloginfo('name') . '</h1>';
-				}
+				echo '<h1 id="company">' . get_bloginfo('name') . '</h1>';
 			?>
 		</div>
 	</div>
 	<?php
-		// If this page is not the homepage (of the website or the portfolio), close the link
+		// If this page is not the homepage, close the link
 		if (!$isHomepage) echo '</a>';
-
-		// If this page is within the portfolio section
-		if ($isPortfolio) {
-			// Show the dropdown menu (Note this standard WordPress menu gets overridden by the Max Mega Menu plugin)
-			wp_nav_menu(
-				array(
-					'theme_location' => 'portfolio-menu'
-				)
-			);
-		}
 	?>

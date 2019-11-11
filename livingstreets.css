@@ -124,7 +124,7 @@ div#living-streets-header h1 {
 	padding-top:50px;
 }
 
-/* Media query for COMPANY header */
+/* Media query for header */
 @media screen and (max-width: 575px) { /* Increase if company logo or photo increases */
 	/* Wrap "Living Streets Consulting" if necessary */
 	div#living-streets-header h1#company {
@@ -132,15 +132,6 @@ div#living-streets-header h1 {
 		padding-top:28px;
 	}
 }
-/* Media query for PORTFOLIO header */
-@media screen and (max-width: 869px) { /* Increase if company logo or photo increases */
-	/* Wrap "Portfolio of Steven Greenwaters" if necessary */
-	div#living-streets-header h1#portfolio {
-		width: 192px;
-		padding-top:8px;
-	}
-}
-/* END Living Streets header */
 
 /* Remove space between project titles and breadcrumbs */
 .breadcrumbs {
